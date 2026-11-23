@@ -1,0 +1,416 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CROSS COUNTRY | Old Money Fit — B2B Wholesale</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/colours.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- Search Modal -->
+  <div class="search-modal" id="searchModal">
+    <div class="search-inner">
+      <input type="text" class="search-input" id="searchInput"
+        placeholder="Search Cross Country: Ivory, Olive, Black, Beige, Old Money..." autocomplete="off">
+      <button class="close-search-btn" id="closeSearch" aria-label="Close search">&times;</button>
+    </div>
+  </div>
+
+  <!-- Full-Resolution Image Lightbox -->
+  <div class="lightbox-modal" id="imageLightbox" onclick="if(event.target === this) Widgets.closeLightbox()">
+    <div class="lightbox-content">
+      <button class="lightbox-close" onclick="Widgets.closeLightbox()" aria-label="Close preview">&times;</button>
+      <img id="lightboxImg" src="" alt="Product Preview">
+      <div class="lightbox-caption">
+        <div>
+          <h4 id="lightboxTitle">Cross Country</h4>
+          <p id="lightboxSubtitle">Brand: Cross Country • Fit: Old Money • Sizes: 30 to 36</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Drawer -->
+  <div class="cart-drawer-backdrop" id="cartBackdrop"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <h3>B2B Inquiry Bag</h3>
+      <button class="close-drawer-btn" id="closeCartBtn">&times;</button>
+    </div>
+    <div class="cart-drawer-body" id="cartItemsList">
+      <!-- Cart items injected by JS -->
+    </div>
+    <div class="cart-drawer-footer">
+      <div class="cart-total-row">
+        <span>Total Selection:</span>
+        <span id="cartGrandTotal">0 Sets</span>
+      </div>
+      <button class="btn-checkout-wa" id="cartCheckoutBtn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c.969.541 1.807.828 2.806.828 3.182 0 5.768-2.587 5.768-5.767 0-3.18-2.586-5.766-5.768-5.766zm3.385 8.163c-.144.405-.837.774-1.17.825-.311.048-.71.077-2.072-.486-1.635-.678-2.686-2.348-2.768-2.457-.082-.109-.661-.88-.661-1.677 0-.797.419-1.189.569-1.352.15-.163.328-.204.437-.204.109 0 .219.001.315.006.101.005.236-.039.369.28.144.348.492 1.2.535 1.288.043.088.072.191.014.307-.058.116-.087.189-.174.29-.087.101-.183.226-.262.304-.087.086-.177.179-.076.353.101.174.45 1.054 1.34 1.848.71.633 1.309.829 1.493.916.184.087.291.073.399-.051.109-.124.465-.541.589-.726.124-.185.247-.154.415-.093.167.062 1.062.5 1.244.591.182.091.304.135.348.212.044.077.044.448-.1 1.025z" />
+        </svg>
+        Send Inquiry via WhatsApp
+      </button>
+    </div>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="header">
+    <a href="#" class="brand-logo">
+      <div class="logo-monogram">
+        <!-- Interlocking CC Monogram -->
+        <svg viewBox="0 0 64 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22 6C13.1634 6 6 11.3726 6 18C6 24.6274 13.1634 30 22 30C28.5 30 34 26.5 36.5 21.5"
+            stroke="currentColor" stroke-width="5.5" stroke-linecap="round" />
+          <path
+            d="M42 6C33.1634 6 26 11.3726 26 18C26 24.6274 33.1634 30 42 30C50.8366 30 58 24.6274 58 18C58 11.3726 50.8366 6 42 6"
+            stroke="currentColor" stroke-width="5.5" stroke-linecap="round" />
+        </svg>
+      </div>
+      <div class="brand-name">
+        <span class="word-cross">CROSS</span>
+        <span class="word-country">COUNTRY</span>
+      </div>
+    </a>
+
+    <!-- Center Navigation Links -->
+    <nav>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item active">
+          <a href="#" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="#categories" class="nav-link">
+            Categories <span class="dropdown-caret">&#9662;</span>
+          </a>
+          <div class="dropdown-menu">
+            <a href="#categories" class="dropdown-item" onclick="CategoryFilter.select('wide-leg')">Wide Leg</a>
+            <a href="#categories" class="dropdown-item" onclick="CategoryFilter.select('straight-fit')">Straight Fit</a>
+            <a href="#categories" class="dropdown-item" onclick="CategoryFilter.select('tracks')">Tracks</a>
+            <a href="#categories" class="dropdown-item" onclick="CategoryFilter.select('shorts')">Shorts</a>
+            <a href="#categories" class="dropdown-item" onclick="CategoryFilter.select('linen-pant')">Linen Pant</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="#shop" class="nav-link">Shop</a>
+        </li>
+        <li class="nav-item">
+          <a href="#about" class="nav-link">About</a>
+        </li>
+        <li class="nav-item">
+          <a href="#contact" class="nav-link">Contact</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Right Utility Icons -->
+    <div class="header-actions">
+      <button class="action-btn" id="searchBtn" aria-label="Search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <circle cx="11" cy="11" r="7" />
+          <line x1="16.5" y1="16.5" x2="22" y2="22" />
+        </svg>
+      </button>
+
+      <button class="action-btn" aria-label="User Profile"
+        onclick="alert('Cross Country B2B Wholesale Portal • Brand: Cross Country | Fit: Old Money | Sizes: 30 to 36');">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <circle cx="12" cy="7" r="4" />
+          <path d="M4 21v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2" />
+        </svg>
+      </button>
+
+      <button class="action-btn cart-btn" id="cartBtn" aria-label="B2B Inquiry Bag">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <path d="M16 10a4 4 0 0 1-8 0" />
+        </svg>
+        <span class="cart-count" id="cartBadge">0</span>
+      </button>
+
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content Flow -->
+  <main>
+    <!-- Hero Carousel Section -->
+    <section class="hero-section">
+      <div class="hero-backdrop">
+        <div class="hero-backdrop-shadow"></div>
+      </div>
+
+      <div class="hero-wrapper">
+        <!-- Left Hero Content -->
+        <div class="hero-content">
+          <div class="hero-tag-wrap">
+            <span class="hero-tag" id="heroTag">CROSS COUNTRY</span>
+            <span class="hero-tag-line"></span>
+          </div>
+
+          <h1 class="hero-title">
+            <span id="heroTitleLine1">WEAR YOUR</span>
+            <span id="heroTitleLine2">STYLE</span>
+          </h1>
+
+          <p class="hero-description" id="heroDescription">
+            Old Money Fit • Sizes 30 to 36<br>Ivory White Double-Pleated Trouser.
+          </p>
+
+          <a href="#shop" class="hero-btn-pill" id="heroCtaBtn">
+            Shop Now <span class="btn-arrow">&rarr;</span>
+          </a>
+        </div>
+
+        <!-- Right Hero Model Visual & Slider (assets/images/1.jpg - 4.jpg) -->
+        <div class="hero-visual-area">
+          <div class="slider-container">
+            <!-- Slide 1: Ivory White (1.jpg) -->
+            <div class="slide-item active">
+              <div class="slide-image-wrapper">
+                <img src="assets/images/1.jpg" alt="Cross Country Old Money Fit - Ivory White" class="slide-image">
+              </div>
+            </div>
+
+            <!-- Slide 2: Olive Khaki (2.jpg) -->
+            <div class="slide-item">
+              <div class="slide-image-wrapper">
+                <img src="assets/images/2.jpg" alt="Cross Country Old Money Fit - Olive Khaki" class="slide-image">
+              </div>
+            </div>
+
+            <!-- Slide 3: Jet Black (3.jpg) -->
+            <div class="slide-item">
+              <div class="slide-image-wrapper">
+                <img src="assets/images/3.jpg" alt="Cross Country Old Money Fit - Jet Black" class="slide-image">
+              </div>
+            </div>
+
+            <!-- Slide 4: Sand Beige (4.jpg) -->
+            <div class="slide-item">
+              <div class="slide-image-wrapper">
+                <img src="assets/images/4.jpg" alt="Cross Country Old Money Fit - Sand Beige" class="slide-image">
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Right Slider Controls: 01 / 04  <  > -->
+          <div class="slider-nav-controls">
+            <div class="slider-counter">
+              <span class="counter-current" id="sliderCurrent">01</span>
+              <span class="counter-divider">/</span>
+              <span class="counter-total" id="sliderTotal">04</span>
+            </div>
+            <div class="slider-arrows">
+              <button class="slider-arrow-btn" id="sliderPrev" aria-label="Previous Slide">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <polyline points="15 18 9 12 15 6" />
+                </svg>
+              </button>
+              <button class="slider-arrow-btn" id="sliderNext" aria-label="Next Slide">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- ==========================================================================
+     CROSS COUNTRY - EXPLORE OUR CATEGORIES COMPONENT
+     Exact recreation of the reference design (Shop by Category)
+     ========================================================================== -->
+
+<section class="explore-categories-section" id="categories">
+  <div class="categories-container">
+    <!-- Section Top Header -->
+    <div class="categories-header-wrap">
+      <div class="categories-title-col">
+        <div class="category-overline-wrap">
+          <span class="category-overline">SHOP BY CATEGORY</span>
+          <span class="category-overline-line"></span>
+        </div>
+        <h2 class="category-main-title">Explore Our Categories</h2>
+      </div>
+
+      <a href="#categories" class="category-view-all-link" onclick="CategoryFilter.select('all')">
+        <span>View All Categories</span>
+        <span class="view-all-arrow">&rarr;</span>
+      </a>
+    </div>
+
+    <!-- 5 Categories Grid / Row -->
+    <div class="categories-grid">
+      <!-- 1. Wide Leg -->
+      <a href="#categories" class="category-card" data-category="wide-leg" onclick="CategoryFilter.select('wide-leg')">
+        <div class="category-card-inner">
+          <img src="assets/images/category-wide-leg.jpg" alt="Cross Country Wide Leg Jeans" class="category-card-img">
+          <div class="category-card-overlay"></div>
+          <div class="category-card-meta">
+            <h3 class="category-name">Wide Leg</h3>
+            <span class="category-cta">
+              Shop Now <span class="cta-arrow">&rarr;</span>
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 2. Straight Fit -->
+      <a href="#categories" class="category-card" data-category="straight-fit" onclick="CategoryFilter.select('straight-fit')">
+        <div class="category-card-inner">
+          <img src="assets/images/category-straight-fit.jpg" alt="Cross Country Straight Fit Jeans" class="category-card-img">
+          <div class="category-card-overlay"></div>
+          <div class="category-card-meta">
+            <h3 class="category-name">Straight Fit</h3>
+            <span class="category-cta">
+              Shop Now <span class="cta-arrow">&rarr;</span>
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 3. Tracks -->
+      <a href="#categories" class="category-card" data-category="tracks" onclick="CategoryFilter.select('tracks')">
+        <div class="category-card-inner">
+          <img src="assets/images/category-tracks.jpg" alt="Cross Country Tracks" class="category-card-img">
+          <div class="category-card-overlay"></div>
+          <div class="category-card-meta">
+            <h3 class="category-name">Tracks</h3>
+            <span class="category-cta">
+              Shop Now <span class="cta-arrow">&rarr;</span>
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 4. Shorts -->
+      <a href="#categories" class="category-card" data-category="shorts" onclick="CategoryFilter.select('shorts')">
+        <div class="category-card-inner">
+          <img src="assets/images/category-shorts.jpg" alt="Cross Country Shorts" class="category-card-img">
+          <div class="category-card-overlay"></div>
+          <div class="category-card-meta">
+            <h3 class="category-name">Shorts</h3>
+            <span class="category-cta">
+              Shop Now <span class="cta-arrow">&rarr;</span>
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 5. Linen Pant -->
+      <a href="#categories" class="category-card" data-category="linen-pant" onclick="CategoryFilter.select('linen-pant')">
+        <div class="category-card-inner">
+          <img src="assets/images/category-linen-pant.jpg" alt="Cross Country Linen Pant" class="category-card-img">
+          <div class="category-card-overlay"></div>
+          <div class="category-card-meta">
+            <h3 class="category-name">Linen Pant</h3>
+            <span class="category-cta">
+              Shop Now <span class="cta-arrow">&rarr;</span>
+            </span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+  <!-- Floating WhatsApp Action -->
+  <a href="javascript:void(0)" class="whatsapp-float" onclick="WhatsAppModule.startDirectChat()"
+    aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24">
+      <path
+        d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c.969.541 1.807.828 2.806.828 3.182 0 5.768-2.587 5.768-5.767 0-3.18-2.586-5.766-5.768-5.766zm3.385 8.163c-.144.405-.837.774-1.17.825-.311.048-.71.077-2.072-.486-1.635-.678-2.686-2.348-2.768-2.457-.082-.109-.661-.88-.661-1.677 0-.797.419-1.189.569-1.352.15-.163.328-.204.437-.204.109 0 .219.001.315.006.101.005.236-.039.369.28.144.348.492 1.2.535 1.288.043.088.072.191.014.307-.058.116-.087.189-.174.29-.087.101-.183.226-.262.304-.087.086-.177.179-.076.353.101.174.45 1.054 1.34 1.848.71.633 1.309.829 1.493.916.184.087.291.073.399-.051.109-.124.465-.541.589-.726.124-.185.247-.154.415-.093.167.062 1.062.5 1.244.591.182.091.304.135.348.212.044.077.044.448-.1 1.025z" />
+    </svg>
+    <span>B2B WhatsApp</span>
+  </a>
+
+  <!-- Footer Component Container (widgets/footer.html) -->
+  <div id="footer-container">
+<!-- ==========================================================================
+     CROSS COUNTRY / DOT JEANS CO. - FOOTER COMPONENT
+     ========================================================================== -->
+<footer class="footer" id="about">
+  <div class="footer-top">
+    <div class="footer-col footer-brand">
+      <a href="#" class="brand-logo">
+        <div class="logo-monogram">
+          <svg viewBox="0 0 64 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22 6C13.1634 6 6 11.3726 6 18C6 24.6274 13.1634 30 22 30C28.5 30 34 26.5 36.5 21.5"
+              stroke="currentColor" stroke-width="5.5" stroke-linecap="round" />
+            <path
+              d="M42 6C33.1634 6 26 11.3726 26 18C26 24.6274 33.1634 30 42 30C50.8366 30 58 24.6274 58 18C58 11.3726 50.8366 6 42 6"
+              stroke="currentColor" stroke-width="5.5" stroke-linecap="round" />
+          </svg>
+        </div>
+        <div class="brand-name">
+          <span class="word-cross">CROSS</span>
+          <span class="word-country">COUNTRY</span>
+        </div>
+      </a>
+      <p class="footer-desc">
+        CROSS COUNTRY by DOT JEANS COMPANY — Old Money Fit tailored trousers (Sizes 30 to 36) crafted for retail
+        partners and wholesale buyers.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Old Money Colors</h4>
+      <ul>
+        <li><a href="#shop">Ivory White (30–36)</a></li>
+        <li><a href="#shop">Olive Khaki (30–36)</a></li>
+        <li><a href="#shop">Jet Black (30–36)</a></li>
+        <li><a href="#shop">Sand Beige (30–36)</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Wholesale &amp; B2B</h4>
+      <ul>
+        <li><a href="javascript:void(0)" onclick="WhatsAppModule.startDirectChat()">Distributor Inquiries</a></li>
+        <li><a href="javascript:void(0)" onclick="WhatsAppModule.startDirectChat()">Bulk Set Orders (30–36)</a></li>
+        <li><a href="javascript:void(0)" onclick="WhatsAppModule.startDirectChat()">Old Money Fit Specs</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col" id="contact">
+      <h4>Direct Contact</h4>
+      <ul>
+        <li><a href="mailto:wholesale@dotjeansco.com">wholesale@dotjeansco.com</a></li>
+        <li><a href="tel:+919876543210">+91 98765 43210</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 CROSS COUNTRY • DOT JEANS COMPANY. All rights reserved.</p>
+    <p>Brand: Cross Country | Fit: Old Money | Sizes: 30 to 36</p>
+  </div>
+</footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/whatsapp.js"></script>
+  <script src="js/widgets.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

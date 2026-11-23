@@ -1,0 +1,100 @@
+<!-- ==========================================================================
+     CROSS COUNTRY - EXPLORE OUR CATEGORIES COMPONENT
+     Exact recreation of the reference design (Shop by Category)
+     ========================================================================== -->
+
+<section class="explore-categories-section" id="categories">
+  <div class="categories-container">
+    <!-- Section Top Header -->
+    <div class="categories-header-wrap">
+      <div class="categories-title-col">
+        <div class="category-overline-wrap">
+          <span class="category-overline">SHOP BY CATEGORY</span>
+          <span class="category-overline-line"></span>
+        </div>
+        <h2 class="category-main-title">Explore Our Categories</h2>
+      </div>
+
+      <a href="#categories" class="category-view-all-link" onclick="CategoryFilter.select('all')">
+        <span>View All Categories</span>
+        <span class="view-all-arrow">&rarr;</span>
+      </a>
+    </div>
+
+    <!-- 5 Categories Grid / Row -->
+    <div class="categories-grid">
+      <!-- 1. Wide Leg -->
+      <a href="#categories" class="category-card" data-category="wide-leg" onclick="CategoryFilter.select('wide-leg')">
+        <div class="category-card-inner">
+          <img src="assets/images/category-wide-leg.jpg" alt="Cross Country Wide Leg Jeans" class="category-card-img">
+          <div class="category-card-overlay"></div>
+          <div class="category-card-meta">
+            <h3 class="category-name">Wide Leg</h3>
+            <span class="category-cta">
+              Shop Now <span class="cta-arrow">&rarr;</span>
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 2. Straight Fit -->
+      <a href="#categories" class="category-card" data-category="straight-fit"
+        onclick="CategoryFilter.select('straight-fit')">
+        <div class="category-card-inner">
+          <img src="assets/images/category-straight-fit.jpg" alt="Cross Country Straight Fit Jeans"
+            class="category-card-img">
+          <div class="category-card-overlay"></div>
+          <div class="category-card-meta">
+            <h3 class="category-name">Straight Fit</h3>
+            <span class="category-cta">
+              Shop Now <span class="cta-arrow">&rarr;</span>
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 3. Tracks -->
+      <a href="#categories" class="category-card" data-category="tracks" onclick="CategoryFilter.select('tracks')">
+        <div class="category-card-inner">
+          <img src="assets/images/category-tracks.jpg" alt="Cross Country Tracks" class="category-card-img">
+          <div class="category-card-overlay"></div>
+          <div class="category-card-meta">
+            <h3 class="category-name">Tracks</h3>
+            <span class="category-cta">
+              Shop Now <span class="cta-arrow">&rarr;</span>
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 4. Shorts -->
+      <a href="#categories" class="category-card" data-category="shorts" onclick="CategoryFilter.select('shorts')">
+        <div class="category-card-inner">
+          <img src="assets/images/category-shorts.jpg" alt="Cross Country Shorts" class="category-card-img">
+          <div class="category-card-overlay"></div>
+          <div class="category-card-meta">
+            <h3 class="category-name">Shorts</h3>
+            <span class="category-cta">
+              Shop Now <span class="cta-arrow">&rarr;</span>
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 5. Linen Pant -->
+      <a href="#categories" class="category-card" data-category="linen-pant"
+        onclick="CategoryFilter.select('linen-pant')">
+        <div class="category-card-inner">
+          <img src="assets/images/category-linen-pant.jpg" alt="Cross Country Linen Pant" class="category-card-img">
+          <div class="category-card-overlay"></div>
+          <div class="category-card-meta">
+            <h3 class="category-name">Linen Pant</h3>
+            <span class="category-cta">
+              Shop Now <span class="cta-arrow">&rarr;</span>
+            </span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>

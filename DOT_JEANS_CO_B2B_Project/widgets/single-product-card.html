@@ -1,0 +1,85 @@
+﻿<!-- ==========================================================================
+     CROSS COUNTRY - SINGLE PRODUCT CARD COMPONENT
+     Exact recreation of the reference design (Straight Fit Jeans)
+     ========================================================================== -->
+
+<div class="single-card-box" id="straightFitJeansCard">
+  <!-- Card Image Area with Top Badges -->
+  <div class="single-card-media" onclick="Widgets.openLightbox('assets/images/straight-fit-jeans.jpg', 'Straight Fit Jeans', 'Brand: Cross Country • 1 Set (5 Pcs) • Sizes: 28, 30, 32, 34')">
+    <div class="media-badge-pill">New Arrival</div>
+    
+    <div class="media-brand-mark">
+      <svg viewBox="0 0 64 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M22 6C13.1634 6 6 11.3726 6 18C6 24.6274 13.1634 30 22 30C28.5 30 34 26.5 36.5 21.5" stroke="currentColor" stroke-width="5.5" stroke-linecap="round"/>
+        <path d="M42 6C33.1634 6 26 11.3726 26 18C26 24.6274 33.1634 30 42 30C50.8366 30 58 24.6274 58 18C58 11.3726 50.8366 6 42 6" stroke="currentColor" stroke-width="5.5" stroke-linecap="round"/>
+      </svg>
+      <div class="brand-subtext">
+        <span>CROSS</span>
+        <span>COUNTRY</span>
+      </div>
+    </div>
+
+    <img src="assets/images/straight-fit-jeans.jpg" alt="Cross Country Straight Fit Jeans" class="single-card-img" onerror="this.src='assets/images/card-reference.jpg'">
+  </div>
+
+  <!-- Card Body Info -->
+  <div class="single-card-body">
+    <div class="single-card-overline">
+      <span class="overline-text">CROSS COUNTRY</span>
+      <span class="overline-rule"></span>
+    </div>
+
+    <h2 class="single-card-title">Straight Fit Jeans</h2>
+
+    <!-- Specs Row: 1 Set (5 Pcs) | Multiple Colours Available -->
+    <div class="single-card-specs">
+      <div class="spec-item">
+        <!-- Pants Icon -->
+        <svg class="spec-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 3h12v4l-1 14h-4l-1-10-1 10H7L6 7V3z"/>
+          <path d="M6 7h12"/>
+          <path d="M10 7v3"/>
+          <path d="M14 7v3"/>
+        </svg>
+        <span class="spec-primary-text">1 Set (5 Pcs)</span>
+      </div>
+
+      <div class="spec-vertical-rule"></div>
+
+      <div class="spec-item">
+        <!-- Palette Icon -->
+        <svg class="spec-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2C6.5 2 2 6.5 2 12c0 2.2 0.8 4.2 2.2 5.8 1.4 1.6 3.3 2.2 5.3 2.2 1.4 0 2.5-1.1 2.5-2.5 0-0.7-0.3-1.3-0.7-1.8-0.5-0.5-0.8-1.2-0.8-2 0-1.7 1.3-3 3-3h1.5c4.1 0 7.5-3.4 7.5-7.5C22 5.4 17.5 2 12 2z"/>
+          <circle cx="7.5" cy="8.5" r="1.2" fill="currentColor"/>
+          <circle cx="12" cy="6.5" r="1.2" fill="currentColor"/>
+          <circle cx="16.5" cy="8.5" r="1.2" fill="currentColor"/>
+        </svg>
+        <div class="spec-stacked-text">
+          <span>Multiple Colours</span>
+          <span>Available</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sizes Selector: 28, 30, 32, 34 -->
+    <div class="single-card-sizes">
+      <span class="sizes-heading">Sizes:</span>
+      <div class="sizes-box-group" id="singleCardSizes">
+        <button type="button" class="size-btn" data-size="28" onclick="SingleCardBox.selectSize(this)">28</button>
+        <button type="button" class="size-btn" data-size="30" onclick="SingleCardBox.selectSize(this)">30</button>
+        <button type="button" class="size-btn active" data-size="32" onclick="SingleCardBox.selectSize(this)">32</button>
+        <button type="button" class="size-btn" data-size="34" onclick="SingleCardBox.selectSize(this)">34</button>
+      </div>
+    </div>
+
+    <!-- Full Width WhatsApp Enquiry Button -->
+    <button type="button" class="single-card-wa-btn" onclick="SingleCardBox.sendWhatsAppEnquiry()">
+      <!-- WhatsApp Logo -->
+      <svg class="wa-glyph" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c.969.541 1.807.828 2.806.828 3.182 0 5.768-2.587 5.768-5.767 0-3.18-2.586-5.766-5.768-5.766zm3.385 8.163c-.144.405-.837.774-1.17.825-.311.048-.71.077-2.072-.486-1.635-.678-2.686-2.348-2.768-2.457-.082-.109-.661-.88-.661-1.677 0-.797.419-1.189.569-1.352.15-.163.328-.204.437-.204.109 0 .219.001.315.006.101.005.236-.039.369.28.144.348.492 1.2.535 1.288.043.088.072.191.014.307-.058.116-.087.189-.174.29-.087.101-.183.226-.262.304-.087.086-.177.179-.076.353.101.174.45 1.054 1.34 1.848.71.633 1.309.829 1.493.916.184.087.291.073.399-.051.109-.124.465-.541.589-.726.124-.185.247-.154.415-.093.167.062 1.062.5 1.244.591.182.091.304.135.348.212.044.077.044.448-.1 1.025z"/>
+      </svg>
+      <span>WhatsApp Enquiry</span>
+      <span class="btn-arrow-icon">&rarr;</span>
+    </button>
+  </div>
+</div>
