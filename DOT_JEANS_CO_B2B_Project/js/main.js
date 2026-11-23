@@ -6,46 +6,94 @@
  */
 
 // ---------------------------------------------------------------------------
-// 1. Hero Carousel Controller (01 / 04 -> 04 / 04)
+// 1. Hero Banner Carousel Controller (Why Choose Us — 3 Banners)
 // ---------------------------------------------------------------------------
 const HeroSlider = {
   currentIndex: 0,
   slides: [],
   autoSlideTimer: null,
-  autoSlideInterval: 6000,
+  autoSlideInterval: 5000,
 
   init() {
     this.slides = window.AppConfig?.slides || [];
-    if (this.slides.length === 0) return;
+    this.slideItems = document.querySelectorAll(".banner-slide");
+    if (!this.slideItems || this.slideItems.length === 0) {
+      // Fallback to legacy slide items if any
+      this.slideItems = document.querySelectorAll(".slide-item");
+    }
+    if (!this.slideItems.length) return;
 
     this.counterCurrent = document.getElementById("sliderCurrent");
     this.counterTotal = document.getElementById("sliderTotal");
     this.prevBtn = document.getElementById("sliderPrev");
     this.nextBtn = document.getElementById("sliderNext");
-
-    this.heroTag = document.getElementById("heroTag");
-    this.heroTitleLine1 = document.getElementById("heroTitleLine1");
-    this.heroTitleLine2 = document.getElementById("heroTitleLine2");
-    this.heroDescription = document.getElementById("heroDescription");
-    this.heroCtaBtn = document.getElementById("heroCtaBtn");
-
-    this.slideItems = document.querySelectorAll(".slide-item");
+    this.dots = document.querySelectorAll(".banner-dot");
+    this.sliderContainer = document.getElementById("bannerSlider") || document.querySelector(".hero-banner-section");
 
     if (this.counterTotal) {
-      this.counterTotal.textContent = String(this.slides.length).padStart(2, "0");
+      this.counterTotal.textContent = String(this.slideItems.length).padStart(2, "0");
     }
 
     if (this.prevBtn) {
-      this.prevBtn.addEventListener("click", () => {
+      this.prevBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
         this.prev();
         this.resetAutoSlide();
       });
     }
 
     if (this.nextBtn) {
-      this.nextBtn.addEventListener("click", () => {
+      this.nextBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
         this.next();
         this.resetAutoSlide();
+      });
+    }
+
+    this.dots.forEach((dot, idx) => {
+      dot.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        this.goTo(idx);
+        this.resetAutoSlide();
+      });
+    });
+
+    // Mobile touch swipe gestures
+    if (this.sliderContainer) {
+      let touchStartX = 0;
+      let touchStartY = 0;
+
+      this.sliderContainer.addEventListener("touchstart", (e) => {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+      }, { passive: true });
+
+      this.sliderContainer.addEventListener("touchend", (e) => {
+        const touchEndX = e.changedTouches[0].clientX;
+        const touchEndY = e.changedTouches[0].clientY;
+        const diffX = touchStartX - touchEndX;
+        const diffY = touchStartY - touchEndY;
+
+        // Ensure horizontal swipe is dominant
+        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+          if (diffX > 0) {
+            this.next();
+          } else {
+            this.prev();
+          }
+          this.resetAutoSlide();
+        }
+      }, { passive: true });
+
+      // Pause on hover
+      this.sliderContainer.addEventListener("mouseenter", () => {
+        clearInterval(this.autoSlideTimer);
+      });
+      this.sliderContainer.addEventListener("mouseleave", () => {
+        this.startAutoSlide();
       });
     }
 
@@ -58,36 +106,18 @@ const HeroSlider = {
     this.startAutoSlide();
   },
 
-  updateSlide(index) {
-    if (index < 0) index = this.slides.length - 1;
-    if (index >= this.slides.length) index = 0;
-    this.currentIndex = index;
+  goTo(index) {
+    this.updateSlide(index);
+  },
 
-    const data = this.slides[this.currentIndex];
+  updateSlide(index) {
+    const total = this.slideItems.length;
+    if (index < 0) index = total - 1;
+    if (index >= total) index = 0;
+    this.currentIndex = index;
 
     if (this.counterCurrent) {
       this.counterCurrent.textContent = String(this.currentIndex + 1).padStart(2, "0");
-    }
-
-    const heroContent = document.querySelector(".hero-content");
-    if (heroContent) {
-      heroContent.style.opacity = "0.4";
-      heroContent.style.transform = "translateY(4px)";
-      heroContent.style.transition = "all 0.25s ease";
-
-      setTimeout(() => {
-        if (this.heroTag) this.heroTag.textContent = data.tagline;
-        if (this.heroTitleLine1) this.heroTitleLine1.textContent = data.headlineLine1;
-        if (this.heroTitleLine2) this.heroTitleLine2.textContent = data.headlineLine2;
-        if (this.heroDescription) this.heroDescription.innerHTML = data.description;
-        if (this.heroCtaBtn) {
-          this.heroCtaBtn.innerHTML = `${data.buttonText} <span class="btn-arrow">&rarr;</span>`;
-          this.heroCtaBtn.href = data.buttonLink;
-        }
-
-        heroContent.style.opacity = "1";
-        heroContent.style.transform = "translateY(0)";
-      }, 180);
     }
 
     this.slideItems.forEach((item, idx) => {
@@ -95,6 +125,14 @@ const HeroSlider = {
         item.classList.add("active");
       } else {
         item.classList.remove("active");
+      }
+    });
+
+    this.dots.forEach((dot, idx) => {
+      if (idx === this.currentIndex) {
+        dot.classList.add("active");
+      } else {
+        dot.classList.remove("active");
       }
     });
   },
@@ -108,13 +146,13 @@ const HeroSlider = {
   },
 
   startAutoSlide() {
+    clearInterval(this.autoSlideTimer);
     this.autoSlideTimer = setInterval(() => {
       this.next();
     }, this.autoSlideInterval);
   },
 
   resetAutoSlide() {
-    clearInterval(this.autoSlideTimer);
     this.startAutoSlide();
   }
 };

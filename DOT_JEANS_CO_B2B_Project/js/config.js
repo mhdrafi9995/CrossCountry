@@ -99,47 +99,31 @@ const AppConfig = {
     }
   ],
 
-  // 4 Hero Slides synced with assets/images/1.jpg - 4.jpg
+  // 3 Brand Banner Slides (Why Choose Us)
   slides: [
     {
       id: "01",
-      tagline: "CROSS COUNTRY",
-      headlineLine1: "WEAR YOUR",
-      headlineLine2: "STYLE",
-      description: "Old Money Fit • Sizes 30 to 36<br>Ivory White Double-Pleated Trouser.",
-      buttonText: "Shop Now",
-      buttonLink: "#categories",
-      image: "assets/images/1.jpg"
+      title: "Jeans Collection",
+      tagline: "why choose us?",
+      category: "straight-fit",
+      image: "assets/images/banner-1.jpg",
+      link: "#categories"
     },
     {
       id: "02",
-      tagline: "CROSS COUNTRY",
-      headlineLine1: "OLD MONEY",
-      headlineLine2: "TAILORING",
-      description: "Old Money Fit • Sizes 30 to 36<br>Olive Khaki Double-Pleated Trouser.",
-      buttonText: "Explore Fit",
-      buttonLink: "#categories",
-      image: "assets/images/2.jpg"
+      title: "Linen Pant Collection",
+      tagline: "why choose us?",
+      category: "linen-pant",
+      image: "assets/images/banner-2.jpg",
+      link: "#categories"
     },
     {
       id: "03",
-      tagline: "CROSS COUNTRY",
-      headlineLine1: "TIMELESS",
-      headlineLine2: "BLACK",
-      description: "Old Money Fit • Sizes 30 to 36<br>Jet Black Double-Pleated Trouser.",
-      buttonText: "View Catalog",
-      buttonLink: "#categories",
-      image: "assets/images/3.jpg"
-    },
-    {
-      id: "04",
-      tagline: "CROSS COUNTRY",
-      headlineLine1: "REFINED",
-      headlineLine2: "CLASSICS",
-      description: "Old Money Fit • Sizes 30 to 36<br>Sand Beige Double-Pleated Trouser.",
-      buttonText: "B2B Inquiry",
-      buttonLink: "#categories",
-      image: "assets/images/4.jpg"
+      title: "Shorts Collection",
+      tagline: "why choose us?",
+      category: "shorts",
+      image: "assets/images/banner-3.jpg",
+      link: "#categories"
     }
   ]
 };

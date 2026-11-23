@@ -147,86 +147,56 @@
 
   <!-- Main Content Flow -->
   <main>
-    <!-- Hero Carousel Section -->
-    <section class="hero-section">
-      <div class="hero-backdrop">
-        <div class="hero-backdrop-shadow"></div>
-      </div>
-
-      <div class="hero-wrapper">
-        <!-- Left Hero Content -->
-        <div class="hero-content">
-          <div class="hero-tag-wrap">
-            <span class="hero-tag" id="heroTag">CROSS COUNTRY</span>
-            <span class="hero-tag-line"></span>
-          </div>
-
-          <h1 class="hero-title">
-            <span id="heroTitleLine1">WEAR YOUR</span>
-            <span id="heroTitleLine2">STYLE</span>
-          </h1>
-
-          <p class="hero-description" id="heroDescription">
-            Old Money Fit • Sizes 30 to 36<br>Ivory White Double-Pleated Trouser.
-          </p>
-
-          <a href="#shop" class="hero-btn-pill" id="heroCtaBtn">
-            Shop Now <span class="btn-arrow">&rarr;</span>
+    <!-- Hero Banner Slider Section (3 Brand Banners) -->
+    <section class="hero-banner-section" id="hero">
+      <div class="banner-slider" id="bannerSlider">
+        <!-- Slide 1: Jeans Banner -->
+        <div class="banner-slide active" data-index="0">
+          <a href="#categories" onclick="CategoryFilter.select('straight-fit')" class="banner-slide-link" aria-label="Explore Jeans Collection">
+            <img src="assets/images/banner-1.jpg" alt="Cross Country Jeans — Why Choose Us" class="banner-img" loading="eager">
           </a>
         </div>
 
-        <!-- Right Hero Model Visual & Slider (assets/images/1.jpg - 4.jpg) -->
-        <div class="hero-visual-area">
-          <div class="slider-container">
-            <!-- Slide 1: Ivory White (1.jpg) -->
-            <div class="slide-item active">
-              <div class="slide-image-wrapper">
-                <img src="assets/images/1.jpg" alt="Cross Country Old Money Fit - Ivory White" class="slide-image">
-              </div>
-            </div>
+        <!-- Slide 2: Linen Pant Banner -->
+        <div class="banner-slide" data-index="1">
+          <a href="#categories" onclick="CategoryFilter.select('linen-pant')" class="banner-slide-link" aria-label="Explore Linen Pants Collection">
+            <img src="assets/images/banner-2.jpg" alt="Cross Country Linen Pants — Why Choose Us" class="banner-img" loading="lazy">
+          </a>
+        </div>
 
-            <!-- Slide 2: Olive Khaki (2.jpg) -->
-            <div class="slide-item">
-              <div class="slide-image-wrapper">
-                <img src="assets/images/2.jpg" alt="Cross Country Old Money Fit - Olive Khaki" class="slide-image">
-              </div>
-            </div>
+        <!-- Slide 3: Shorts Banner -->
+        <div class="banner-slide" data-index="2">
+          <a href="#categories" onclick="CategoryFilter.select('shorts')" class="banner-slide-link" aria-label="Explore Shorts Collection">
+            <img src="assets/images/banner-3.jpg" alt="Cross Country Shorts — Why Choose Us" class="banner-img" loading="lazy">
+          </a>
+        </div>
+      </div>
 
-            <!-- Slide 3: Jet Black (3.jpg) -->
-            <div class="slide-item">
-              <div class="slide-image-wrapper">
-                <img src="assets/images/3.jpg" alt="Cross Country Old Money Fit - Jet Black" class="slide-image">
-              </div>
-            </div>
+      <!-- Slider Navigation Arrows -->
+      <button class="banner-arrow-btn banner-arrow-prev" id="sliderPrev" aria-label="Previous Slide">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+      </button>
 
-            <!-- Slide 4: Sand Beige (4.jpg) -->
-            <div class="slide-item">
-              <div class="slide-image-wrapper">
-                <img src="assets/images/4.jpg" alt="Cross Country Old Money Fit - Sand Beige" class="slide-image">
-              </div>
-            </div>
-          </div>
+      <button class="banner-arrow-btn banner-arrow-next" id="sliderNext" aria-label="Next Slide">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+      </button>
 
-          <!-- Bottom Right Slider Controls: 01 / 04  <  > -->
-          <div class="slider-nav-controls">
-            <div class="slider-counter">
-              <span class="counter-current" id="sliderCurrent">01</span>
-              <span class="counter-divider">/</span>
-              <span class="counter-total" id="sliderTotal">04</span>
-            </div>
-            <div class="slider-arrows">
-              <button class="slider-arrow-btn" id="sliderPrev" aria-label="Previous Slide">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <polyline points="15 18 9 12 15 6" />
-                </svg>
-              </button>
-              <button class="slider-arrow-btn" id="sliderNext" aria-label="Next Slide">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <polyline points="9 18 15 12 9 6" />
-                </svg>
-              </button>
-            </div>
-          </div>
+      <!-- Bottom Slider Controls (Counter & Dots) -->
+      <div class="banner-controls">
+        <div class="banner-counter">
+          <span class="counter-current" id="sliderCurrent">01</span>
+          <span class="counter-divider">/</span>
+          <span class="counter-total" id="sliderTotal">03</span>
+        </div>
+
+        <div class="banner-dots" id="bannerDots">
+          <button class="banner-dot active" data-slide="0" aria-label="Slide 1"></button>
+          <button class="banner-dot" data-slide="1" aria-label="Slide 2"></button>
+          <button class="banner-dot" data-slide="2" aria-label="Slide 3"></button>
         </div>
       </div>
     </section>
