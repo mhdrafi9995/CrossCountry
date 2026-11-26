@@ -1,4 +1,4 @@
-﻿<!-- ==========================================================================
+<!-- ==========================================================================
      CROSS COUNTRY / DOT JEANS CO. - PRODUCT CATALOG COMPONENT
      Complete B2B Product Cards & Cart Integration
      ========================================================================== -->
@@ -18,25 +18,24 @@
     <div class="spec-highlight-pill"><span>Sizes:</span> 28 to 36</div>
   </div>
 
-  <!-- Featured Style Banner (Straight Fit Jeans - Reference Design) -->
+  <!-- Featured Style Banner (Old Money Trouser Collection - Reference Design) -->
   <div class="featured-banner-wrapper">
-    <div class="single-card-box" id="straightFitJeansCard">
+    <div class="single-card-box" id="oldMoneyWidgetCard" data-code="OLD">
       <!-- Media Area -->
-      <div class="single-card-media" onclick="Widgets.openLightbox('assets/images/straight-fit-jeans.jpg', 'Straight Fit Jeans', 'Brand: Cross Country • 1 Set (5 Pcs) • Sizes: 28, 30, 32, 34')">
-        <div class="media-badge-pill">New Arrival</div>
-        
-        <div class="media-brand-mark">
-          <svg viewBox="0 0 64 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M22 6C13.1634 6 6 11.3726 6 18C6 24.6274 13.1634 30 22 30C28.5 30 34 26.5 36.5 21.5" stroke="currentColor" stroke-width="5.5" stroke-linecap="round"/>
-            <path d="M42 6C33.1634 6 26 11.3726 26 18C26 24.6274 33.1634 30 42 30C50.8366 30 58 24.6274 58 18C58 11.3726 50.8366 6 42 6" stroke="currentColor" stroke-width="5.5" stroke-linecap="round"/>
-          </svg>
-          <div class="brand-subtext">
-            <span>CROSS</span>
-            <span>COUNTRY</span>
-          </div>
+      <div class="single-card-media" onclick="Widgets.openLightbox('assets/images/old-money-card.jpg', 'Old Money — Jet Black', 'Code: OLD • Wholesale Only • 1 Set (5 Pcs) • Sizes: 30, 32, 34, 36')">
+        <div class="media-badges-group">
+          <span class="media-badge-pill">New Arrival</span>
+          <span class="media-badge-pill badge-wholesale">Wholesale Only</span>
         </div>
+        
+        <!-- Floating Favorite Heart Button -->
+        <button type="button" class="card-fav-btn" aria-label="Add Old Money to Favorites" onclick="event.stopPropagation(); FavoriteModule.toggle(this, 'Old Money (CODE: OLD)', 'OLD')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+        </button>
 
-        <img src="assets/images/straight-fit-jeans.jpg" alt="Cross Country Straight Fit Jeans" class="single-card-img" onerror="this.src='assets/images/card-reference.jpg'">
+        <img src="assets/images/old-money-card.jpg" alt="Cross Country Old Money Trouser — Code OLD" class="single-card-img" onerror="this.src='assets/images/old-money-alt.jpg'">
       </div>
 
       <!-- Content Area -->
@@ -44,9 +43,10 @@
         <div class="single-card-overline">
           <span class="overline-text">CROSS COUNTRY</span>
           <span class="overline-rule"></span>
+          <span class="product-code-badge">CODE: OLD</span>
         </div>
 
-        <h3 class="single-card-title">Straight Fit Jeans</h3>
+        <h3 class="single-card-title">Old Money</h3>
 
         <div class="single-card-specs">
           <div class="spec-item">
@@ -75,34 +75,58 @@
           </div>
         </div>
 
-        <!-- Sizes Selector: 28, 30, 32, 34 -->
+        <!-- Color Swatch Pills -->
+        <div class="card-color-swatches">
+          <span class="swatches-label">Colour:</span>
+          <div class="swatches-pills">
+            <button type="button" class="color-swatch-btn active" data-color="black" onclick="OldMoneyModule.switchColor(this, 'black', 'oldMoneyWidgetCard')">
+              <span class="swatch-circle swatch-black"></span>
+              <span>Jet Black</span>
+            </button>
+            <button type="button" class="color-swatch-btn" data-color="beige" onclick="OldMoneyModule.switchColor(this, 'beige', 'oldMoneyWidgetCard')">
+              <span class="swatch-circle swatch-beige"></span>
+              <span>Sand Beige</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Sizes Selector: 30, 32, 34, 36 -->
         <div class="single-card-sizes">
           <span class="sizes-heading">Sizes:</span>
           <div class="sizes-box-group">
-            <button type="button" class="size-btn" data-size="28" onclick="SingleCardBox.selectSize(this)">28</button>
-            <button type="button" class="size-btn" data-size="30" onclick="SingleCardBox.selectSize(this)">30</button>
-            <button type="button" class="size-btn active" data-size="32" onclick="SingleCardBox.selectSize(this)">32</button>
-            <button type="button" class="size-btn" data-size="34" onclick="SingleCardBox.selectSize(this)">34</button>
+            <button type="button" class="size-btn" data-size="30" onclick="OldMoneyModule.selectSize(this, 'oldMoneyWidgetCard')">30</button>
+            <button type="button" class="size-btn active" data-size="32" onclick="OldMoneyModule.selectSize(this, 'oldMoneyWidgetCard')">32</button>
+            <button type="button" class="size-btn" data-size="34" onclick="OldMoneyModule.selectSize(this, 'oldMoneyWidgetCard')">34</button>
+            <button type="button" class="size-btn" data-size="36" onclick="OldMoneyModule.selectSize(this, 'oldMoneyWidgetCard')">36</button>
           </div>
         </div>
 
         <!-- Action Buttons: Add to Bag + WhatsApp Enquiry -->
         <div class="single-card-actions">
-          <button type="button" class="single-card-cart-btn" onclick="SingleCardBox.addToBag()">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-              <line x1="3" y1="6" x2="21" y2="6"/>
-              <path d="M16 10a4 4 0 0 1-8 0"/>
-            </svg>
-            Add to Bag
-          </button>
-          <button type="button" class="single-card-wa-btn" onclick="SingleCardBox.sendWhatsAppEnquiry()">
+          <button type="button" class="single-card-wa-btn" onclick="OldMoneyModule.sendWhatsApp('oldMoneyWidgetCard')">
             <svg class="wa-glyph" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c.969.541 1.807.828 2.806.828 3.182 0 5.768-2.587 5.768-5.767 0-3.18-2.586-5.766-5.768-5.766zm3.385 8.163c-.144.405-.837.774-1.17.825-.311.048-.71.077-2.072-.486-1.635-.678-2.686-2.348-2.768-2.457-.082-.109-.661-.88-.661-1.677 0-.797.419-1.189.569-1.352.15-.163.328-.204.437-.204.109 0 .219.001.315.006.101.005.236-.039.369.28.144.348.492 1.2.535 1.288.043.088.072.191.014.307-.058.116-.087.189-.174.29-.087.101-.183.226-.262.304-.087.086-.177.179-.076.353.101.174.45 1.054 1.34 1.848.71.633 1.309.829 1.493.916.184.087.291.073.399-.051.109-.124.465-.541.589-.726.124-.185.247-.154.415-.093.167.062 1.062.5 1.244.591.182.091.304.135.348.212.044.077.044.448-.1 1.025z"/>
             </svg>
             <span>WhatsApp Enquiry</span>
             <span class="btn-arrow-icon">&rarr;</span>
           </button>
+          
+          <div class="card-secondary-row">
+            <button type="button" class="card-inline-fav-btn" onclick="FavoriteModule.toggle(this, 'Old Money (CODE: OLD)', 'OLD')">
+              <svg class="heart-icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+              <span class="fav-text">Favorite</span>
+            </button>
+            <button type="button" class="card-add-bag-btn" onclick="OldMoneyModule.addToBag('oldMoneyWidgetCard')">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                <line x1="3" y1="6" x2="21" y2="6"/>
+                <path d="M16 10a4 4 0 0 1-8 0"/>
+              </svg>
+              <span>Add to Bag</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>

@@ -430,3 +430,245 @@ const CategoryFilter = {
 };
 
 window.CategoryFilter = CategoryFilter;
+
+/**
+ * ==========================================================================
+ * FAVORITE MODULE (Interactive Wishlist / Heart Toggle)
+ * Persists in localStorage and gives animated toast feedback
+ * ==========================================================================
+ */
+const FavoriteModule = {
+  storageKey: "cc_b2b_favorites",
+
+  getFavorites() {
+    try {
+      const data = localStorage.getItem(this.storageKey);
+      return data ? JSON.parse(data) : [];
+    } catch (e) {
+      return [];
+    }
+  },
+
+  isFavorited(codeOrId) {
+    const list = this.getFavorites();
+    return list.some(item => item.id === codeOrId || item.code === codeOrId);
+  },
+
+  toggle(btnEl, productName = "Old Money", productCode = "OLD") {
+    const list = this.getFavorites();
+    const existingIndex = list.findIndex(item => item.code === productCode || item.name === productName);
+    let isNowFavorited = false;
+
+    if (existingIndex >= 0) {
+      list.splice(existingIndex, 1);
+      isNowFavorited = false;
+      this.showToast(`Removed "${productName}" from favorites`);
+    } else {
+      list.push({
+        id: productCode.toLowerCase(),
+        code: productCode,
+        name: productName,
+        addedAt: new Date().toISOString()
+      });
+      isNowFavorited = true;
+      this.showToast(`Added "${productName}" to favorites! ❤️`);
+    }
+
+    try {
+      localStorage.setItem(this.storageKey, JSON.stringify(list));
+    } catch (e) {
+      console.warn("localStorage not available:", e);
+    }
+
+    // Update active class on all buttons in this card
+    const cardEl = btnEl ? btnEl.closest(".single-card-box") : null;
+    if (cardEl) {
+      cardEl.querySelectorAll(".card-fav-btn, .card-inline-fav-btn").forEach(btn => {
+        if (isNowFavorited) {
+          btn.classList.add("active");
+          const textSpan = btn.querySelector(".fav-text");
+          if (textSpan) textSpan.textContent = "Favorited";
+        } else {
+          btn.classList.remove("active");
+          const textSpan = btn.querySelector(".fav-text");
+          if (textSpan) textSpan.textContent = "Favorite";
+        }
+      });
+    } else if (btnEl) {
+      btnEl.classList.toggle("active", isNowFavorited);
+    }
+  },
+
+  showToast(message) {
+    let toast = document.getElementById("favoriteToast");
+    if (!toast) {
+      toast = document.createElement("div");
+      toast.id = "favoriteToast";
+      toast.className = "fav-toast";
+      document.body.appendChild(toast);
+    }
+
+    toast.innerHTML = `<span class="fav-toast-heart">♥</span> <span>${message}</span>`;
+    toast.classList.add("show");
+
+    if (this._toastTimeout) clearTimeout(this._toastTimeout);
+    this._toastTimeout = setTimeout(() => {
+      toast.classList.remove("show");
+    }, 2800);
+  },
+
+  syncButtons() {
+    const list = this.getFavorites();
+    const codes = new Set(list.map(i => i.code));
+    document.querySelectorAll(".single-card-box").forEach(card => {
+      const code = card.dataset.code || "OLD";
+      if (codes.has(code)) {
+        card.querySelectorAll(".card-fav-btn, .card-inline-fav-btn").forEach(btn => {
+          btn.classList.add("active");
+          const textSpan = btn.querySelector(".fav-text");
+          if (textSpan) textSpan.textContent = "Favorited";
+        });
+      }
+    });
+  }
+};
+
+window.FavoriteModule = FavoriteModule;
+
+/**
+ * ==========================================================================
+ * OLD MONEY CARD CONTROLLER
+ * Code: OLD | Sizes: 30 to 36 | Badges: New Arrival, Wholesale Only
+ * Photos: Jet Black & Sand Beige
+ * ==========================================================================
+ */
+const OldMoneyModule = {
+  state: {
+    oldMoneyCard1: {
+      size: "32",
+      color: "Jet Black",
+      img: "assets/images/old-money-card.jpg",
+      code: "OLD",
+      title: "Old Money"
+    },
+    oldMoneyCard2: {
+      size: "32",
+      color: "Sand Beige",
+      img: "assets/images/old-money-alt.jpg",
+      code: "OLD",
+      title: "Old Money"
+    }
+  },
+
+  selectSize(btnEl, cardId = "oldMoneyCard1") {
+    const parent = btnEl.closest(".sizes-box-group");
+    if (parent) {
+      parent.querySelectorAll(".size-btn").forEach(b => b.classList.remove("active"));
+    }
+    btnEl.classList.add("active");
+    const chosenSize = btnEl.dataset.size || "32";
+
+    if (!this.state[cardId]) {
+      this.state[cardId] = { size: chosenSize, color: "Jet Black", code: "OLD", title: "Old Money" };
+    } else {
+      this.state[cardId].size = chosenSize;
+    }
+  },
+
+  switchColor(btnEl, colorKey, cardId = "oldMoneyCard1") {
+    const card = document.getElementById(cardId) || btnEl.closest(".single-card-box");
+    if (!card) return;
+
+    // Switch active swatch button
+    const swatchesWrap = btnEl.closest(".swatches-pills");
+    if (swatchesWrap) {
+      swatchesWrap.querySelectorAll(".color-swatch-btn").forEach(b => b.classList.remove("active"));
+      btnEl.classList.add("active");
+    }
+
+    const imgEl = card.querySelector(".single-card-img");
+    const isBeige = colorKey === "beige" || colorKey === "sand";
+    const newSrc = isBeige ? "assets/images/old-money-alt.jpg" : "assets/images/old-money-card.jpg";
+    const colorName = isBeige ? "Sand Beige" : "Jet Black";
+
+    if (imgEl) {
+      imgEl.style.opacity = "0.3";
+      imgEl.style.transform = "scale(0.98)";
+      setTimeout(() => {
+        imgEl.src = newSrc;
+        imgEl.style.opacity = "1";
+        imgEl.style.transform = "scale(1)";
+      }, 150);
+    }
+
+    if (!this.state[cardId]) {
+      this.state[cardId] = { size: "32", code: "OLD", title: "Old Money" };
+    }
+    this.state[cardId].color = colorName;
+    this.state[cardId].img = newSrc;
+  },
+
+  addToBag(cardId = "oldMoneyCard1") {
+    const itemState = this.state[cardId] || {
+      size: "32",
+      color: "Jet Black",
+      img: "assets/images/old-money-card.jpg",
+      code: "OLD",
+      title: "Old Money"
+    };
+
+    window.CartModule?.addItem({
+      id: `old-money-${itemState.color.toLowerCase().replace(/\s+/g, '-')}`,
+      name: `Old Money (${itemState.color})`,
+      brand: "Cross Country",
+      fit: "Old Money",
+      code: "OLD",
+      size: `Size ${itemState.size} (Set 30–36)`,
+      img: itemState.img || "assets/images/old-money-card.jpg"
+    });
+  },
+
+  sendWhatsApp(cardId = "oldMoneyCard1") {
+    const itemState = this.state[cardId] || {
+      size: "32",
+      color: "Jet Black",
+      code: "OLD",
+      title: "Old Money"
+    };
+
+    const brand = "CROSS COUNTRY";
+    const product = "Old Money";
+    const code = "OLD";
+    const size = itemState.size || "32";
+    const color = itemState.color || "Jet Black";
+
+    const message =
+      `*B2B Wholesale Inquiry | ${brand}*\n` +
+      `━━━━━━━━━━━━━━━━━━━━━━\n` +
+      `Hello Sales Team,\n\n` +
+      `I would like to place a wholesale inquiry for:\n` +
+      `• *Brand:* ${brand}\n` +
+      `• *Product:* ${product}\n` +
+      `• *Code:* ${code}\n` +
+      `• *Status:* New Arrival | Wholesale Only\n` +
+      `• *Colorway:* ${color}\n` +
+      `• *Size Range:* 30 to 36\n` +
+      `• *Selected Size Focus:* Size ${size}\n` +
+      `• *Wholesale Pack:* 1 Set (5 Pcs)\n\n` +
+      `Please provide the wholesale price quotation, MOQ requirements, and dispatch schedule.`;
+
+    window.WhatsAppModule?.openWhatsApp(message);
+  }
+};
+
+window.OldMoneyModule = OldMoneyModule;
+
+// Initialize favorites syncing once DOM is loaded
+if (typeof document !== "undefined") {
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => FavoriteModule.syncButtons());
+  } else {
+    FavoriteModule.syncButtons();
+  }
+}
+
