@@ -86,6 +86,36 @@ a {
   z-index: 101;
 }
 
+.brand-logo-img {
+  height: 52px;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.25s ease, height 0.25s ease;
+}
+
+.brand-logo:hover .brand-logo-img {
+  transform: scale(1.04);
+}
+
+.header.scrolled .brand-logo-img {
+  height: 42px;
+}
+
+.footer-brand .brand-logo {
+  display: inline-flex;
+  margin-bottom: 16px;
+}
+
+.footer-logo-img {
+  height: 60px;
+  width: auto;
+  max-width: 200px;
+  object-fit: contain;
+  display: block;
+}
+
 .logo-monogram {
   display: flex;
   align-items: center;
