@@ -88,10 +88,10 @@
           </div>
         </li>
         <li class="nav-item">
-          <a href="#old-money" class="nav-link">Old Money <span style="font-size: 0.65rem; background: #111; color: #fff; padding: 2px 6px; border-radius: 4px; vertical-align: middle; margin-left: 2px;">NEW</span></a>
+          <a href="#featured-products" class="nav-link">Featured</a>
         </li>
         <li class="nav-item">
-          <a href="#old-money" class="nav-link">Shop</a>
+          <a href="#old-money" class="nav-link">Old Money <span style="font-size: 0.65rem; background: #111; color: #fff; padding: 2px 6px; border-radius: 4px; vertical-align: middle; margin-left: 2px;">NEW</span></a>
         </li>
         <li class="nav-item">
           <a href="#about" class="nav-link">About</a>
@@ -286,6 +286,208 @@
           </div>
         </div>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     OUR COLLECTION - FEATURED PRODUCTS (3D COVERFLOW CAROUSEL)
+     Exact recreation of the reference design with Pants/Trouser collection
+     ========================================================================== -->
+<section class="featured-collection-section" id="featured-products">
+  <div class="featured-header-wrap">
+    <span class="featured-overline">OUR COLLECTION</span>
+    <h2 class="featured-main-title">Featured Products</h2>
+    <p class="featured-subtitle">Explore our most popular items loved by customers</p>
+  </div>
+
+  <div class="featured-carousel-container">
+    <!-- Left Navigation Arrow -->
+    <button type="button" class="featured-nav-btn featured-nav-prev" onclick="FeaturedCarousel.prev()" aria-label="Previous product">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+    </button>
+
+    <!-- Cards Track -->
+    <div class="featured-cards-track" id="featuredCardsTrack">
+      
+      <!-- Card 0: Wide Leg Denim -->
+      <div class="featured-card" data-index="0" data-code="WIDE-LEG" data-title="Wide Leg Denim" data-price="$89.99" data-img="assets/images/category-wide-leg.jpg">
+        <div class="featured-card-top">
+          <span class="featured-card-badge">NEW</span>
+          <button type="button" class="featured-card-heart" aria-label="Favorite Wide Leg" onclick="event.stopPropagation(); FavoriteModule.toggle(this, 'Wide Leg Denim', 'WIDE-LEG')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="featured-card-media" onclick="Widgets.openLightbox('assets/images/category-wide-leg.jpg', 'Wide Leg Denim', 'Code: WIDE-LEG • Premium Denim Collection')">
+          <img src="assets/images/category-wide-leg.jpg" alt="Wide Leg Denim" class="featured-card-img">
+        </div>
+        <div class="featured-card-dots">
+          <span class="active"></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="featured-card-info">
+          <h3 class="featured-card-title">Wide Leg Denim</h3>
+          <p class="featured-card-desc">Track your fitness and stay connected.</p>
+          <div class="featured-card-rating">
+            <span class="star-icon">★</span>
+            <span>4.6 (89)</span>
+          </div>
+          <div class="featured-card-footer">
+            <span class="featured-card-price">$89.99</span>
+            <div class="featured-btn-holder"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 1: Straight Fit Jeans -->
+      <div class="featured-card" data-index="1" data-code="STRAIGHT" data-title="Straight Fit Jeans" data-price="$99.99" data-img="assets/images/category-straight-fit.jpg">
+        <div class="featured-card-top">
+          <span class="featured-card-badge">TRENDING</span>
+          <button type="button" class="featured-card-heart" aria-label="Favorite Straight Fit" onclick="event.stopPropagation(); FavoriteModule.toggle(this, 'Straight Fit Jeans', 'STRAIGHT')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="featured-card-media" onclick="Widgets.openLightbox('assets/images/category-straight-fit.jpg', 'Straight Fit Jeans', 'Code: STRAIGHT • Cross Country Denim')">
+          <img src="assets/images/category-straight-fit.jpg" alt="Straight Fit Jeans" class="featured-card-img">
+        </div>
+        <div class="featured-card-dots">
+          <span class="active"></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="featured-card-info">
+          <h3 class="featured-card-title">Straight Fit Jeans</h3>
+          <p class="featured-card-desc">Lightweight and comfortable for everyday run.</p>
+          <div class="featured-card-rating">
+            <span class="star-icon">★</span>
+            <span>4.7 (98)</span>
+          </div>
+          <div class="featured-card-footer">
+            <span class="featured-card-price">$99.99</span>
+            <div class="featured-btn-holder"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Old Money Trouser (BEST SELLER - ACTIVE CENTER) -->
+      <div class="featured-card is-active" data-index="2" data-code="OLD" data-title="Old Money Trouser" data-price="$129.99" data-img="assets/images/old-money-card.jpg">
+        <div class="featured-card-top">
+          <span class="featured-card-badge">BEST SELLER</span>
+          <button type="button" class="featured-card-heart" aria-label="Favorite Old Money" onclick="event.stopPropagation(); FavoriteModule.toggle(this, 'Old Money Trouser', 'OLD')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="featured-card-media" onclick="Widgets.openLightbox('assets/images/old-money-card.jpg', 'Old Money Trouser', 'Code: OLD • Sizes: 30 to 36 • Wholesale Only')">
+          <img src="assets/images/old-money-card.jpg" alt="Old Money Trouser" class="featured-card-img">
+        </div>
+        <div class="featured-card-dots">
+          <span class="active"></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="featured-card-info">
+          <h3 class="featured-card-title">Old Money Trouser</h3>
+          <p class="featured-card-desc">High quality luxury drape with premium comfort.</p>
+          <div class="featured-card-rating">
+            <span class="star-icon">★</span>
+            <span>4.8 (120)</span>
+          </div>
+          <div class="featured-card-footer">
+            <span class="featured-card-price">$129.99</span>
+            <div class="featured-btn-holder"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Linen Classic Pant -->
+      <div class="featured-card" data-index="3" data-code="LINEN" data-title="Linen Classic Pant" data-price="$109.99" data-img="assets/images/category-linen-pant.jpg">
+        <div class="featured-card-top">
+          <span class="featured-card-badge">POPULAR</span>
+          <button type="button" class="featured-card-heart" aria-label="Favorite Linen Pant" onclick="event.stopPropagation(); FavoriteModule.toggle(this, 'Linen Classic Pant', 'LINEN')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="featured-card-media" onclick="Widgets.openLightbox('assets/images/category-linen-pant.jpg', 'Linen Classic Pant', 'Code: LINEN • 100% Breathable Fit')">
+          <img src="assets/images/category-linen-pant.jpg" alt="Linen Classic Pant" class="featured-card-img">
+        </div>
+        <div class="featured-card-dots">
+          <span class="active"></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="featured-card-info">
+          <h3 class="featured-card-title">Linen Classic Pant</h3>
+          <p class="featured-card-desc">Capture moments with airy natural clarity.</p>
+          <div class="featured-card-rating">
+            <span class="star-icon">★</span>
+            <span>4.9 (60)</span>
+          </div>
+          <div class="featured-card-footer">
+            <span class="featured-card-price">$109.99</span>
+            <div class="featured-btn-holder"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: Athletic Track Pant -->
+      <div class="featured-card" data-index="4" data-code="TRACKS" data-title="Athletic Track Pant" data-price="$79.99" data-img="assets/images/category-tracks.jpg">
+        <div class="featured-card-top">
+          <span class="featured-card-badge">NEW</span>
+          <button type="button" class="featured-card-heart" aria-label="Favorite Track Pant" onclick="event.stopPropagation(); FavoriteModule.toggle(this, 'Athletic Track Pant', 'TRACKS')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="featured-card-media" onclick="Widgets.openLightbox('assets/images/category-tracks.jpg', 'Athletic Track Pant', 'Code: TRACKS • Side Stripe Utility')">
+          <img src="assets/images/category-tracks.jpg" alt="Athletic Track Pant" class="featured-card-img">
+        </div>
+        <div class="featured-card-dots">
+          <span class="active"></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="featured-card-info">
+          <h3 class="featured-card-title">Athletic Track Pant</h3>
+          <p class="featured-card-desc">Spacious, durable and water resistant comfort.</p>
+          <div class="featured-card-rating">
+            <span class="star-icon">★</span>
+            <span>4.5 (75)</span>
+          </div>
+          <div class="featured-card-footer">
+            <span class="featured-card-price">$79.99</span>
+            <div class="featured-btn-holder"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right Navigation Arrow -->
+    <button type="button" class="featured-nav-btn featured-nav-next" onclick="FeaturedCarousel.next()" aria-label="Next product">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"/>
+      </svg>
+    </button>
+
+    <!-- Pagination Dots -->
+    <div class="featured-pagination-dots" id="featuredDots">
+      <button type="button" class="featured-page-dot" onclick="FeaturedCarousel.goTo(0)" aria-label="Product 1"></button>
+      <button type="button" class="featured-page-dot" onclick="FeaturedCarousel.goTo(1)" aria-label="Product 2"></button>
+      <button type="button" class="featured-page-dot active" onclick="FeaturedCarousel.goTo(2)" aria-label="Product 3 (Active)"></button>
+      <button type="button" class="featured-page-dot" onclick="FeaturedCarousel.goTo(3)" aria-label="Product 4"></button>
+      <button type="button" class="featured-page-dot" onclick="FeaturedCarousel.goTo(4)" aria-label="Product 5"></button>
     </div>
   </div>
 </section>

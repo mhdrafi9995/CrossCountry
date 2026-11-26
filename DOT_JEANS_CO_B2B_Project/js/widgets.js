@@ -663,12 +663,158 @@ const OldMoneyModule = {
 
 window.OldMoneyModule = OldMoneyModule;
 
-// Initialize favorites syncing once DOM is loaded
+/**
+ * ==========================================================================
+ * FEATURED PRODUCTS 3D COVERFLOW CAROUSEL CONTROLLER
+ * Matches reference UI: 5-card perspective, active card elevated + Add to Cart
+ * ==========================================================================
+ */
+const FeaturedCarousel = {
+  currentIndex: 2, // Center card (Old Money Trouser) initially active
+  totalCards: 5,
+
+  init() {
+    this.cards = Array.from(document.querySelectorAll(".featured-card"));
+    this.dots = Array.from(document.querySelectorAll(".featured-page-dot"));
+    if (!this.cards.length) return;
+
+    this.totalCards = this.cards.length;
+    this.update();
+
+    // Attach click events on each card
+    this.cards.forEach((card, idx) => {
+      card.addEventListener("click", (e) => {
+        // If clicking directly on a button or heart inside, let it handle
+        if (e.target.closest(".featured-card-heart") || e.target.closest(".featured-card-btn-full") || e.target.closest(".featured-card-btn-mini")) {
+          return;
+        }
+        this.goTo(idx);
+      });
+    });
+
+    // Touch swipe support
+    const track = document.getElementById("featuredCardsTrack");
+    if (track) {
+      let touchStartX = 0;
+      track.addEventListener("touchstart", (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      track.addEventListener("touchend", (e) => {
+        const touchEndX = e.changedTouches[0].screenX;
+        const diff = touchEndX - touchStartX;
+        if (diff > 50) this.prev();
+        if (diff < -50) this.next();
+      }, { passive: true });
+    }
+  },
+
+  goTo(targetIndex) {
+    if (targetIndex < 0) targetIndex = this.totalCards - 1;
+    if (targetIndex >= this.totalCards) targetIndex = 0;
+    this.currentIndex = targetIndex;
+    this.update();
+  },
+
+  next() {
+    this.goTo(this.currentIndex + 1);
+  },
+
+  prev() {
+    this.goTo(this.currentIndex - 1);
+  },
+
+  update() {
+    if (!this.cards || !this.cards.length) return;
+
+    this.cards.forEach((card, i) => {
+      // Calculate relative position (-2, -1, 0, 1, 2)
+      let offset = i - this.currentIndex;
+      if (offset < -2) offset += this.totalCards;
+      if (offset > 2) offset -= this.totalCards;
+
+      card.classList.remove("is-active", "is-prev", "is-next", "is-far-prev", "is-far-next", "is-hidden");
+      card.setAttribute("data-offset", offset);
+
+      const btnHolder = card.querySelector(".featured-btn-holder");
+
+      if (offset === 0) {
+        card.classList.add("is-active");
+        if (btnHolder) {
+          btnHolder.innerHTML = `
+            <button type="button" class="featured-card-btn-full" aria-label="Add to Cart" onclick="event.stopPropagation(); FeaturedCarousel.addToCart(${i})">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                <line x1="3" y1="6" x2="21" y2="6"/>
+                <path d="M16 10a4 4 0 0 1-8 0"/>
+              </svg>
+              <span>Add to Cart</span>
+            </button>`;
+        }
+      } else {
+        if (offset === -1) card.classList.add("is-prev");
+        else if (offset === 1) card.classList.add("is-next");
+        else if (offset === -2) card.classList.add("is-far-prev");
+        else if (offset === 2) card.classList.add("is-far-next");
+        else card.classList.add("is-hidden");
+
+        if (btnHolder) {
+          btnHolder.innerHTML = `
+            <button type="button" class="featured-card-btn-mini" aria-label="Add to cart" onclick="event.stopPropagation(); FeaturedCarousel.addToCart(${i})">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                <line x1="3" y1="6" x2="21" y2="6"/>
+                <path d="M16 10a4 4 0 0 1-8 0"/>
+              </svg>
+            </button>`;
+        }
+      }
+    });
+
+    // Update dots
+    if (this.dots) {
+      this.dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === this.currentIndex);
+      });
+    }
+  },
+
+  addToCart(index) {
+    const card = this.cards[index];
+    if (!card) return;
+
+    const title = card.getAttribute("data-title") || "Cross Country Pants";
+    const price = card.getAttribute("data-price") || "$129.99";
+    const code = card.getAttribute("data-code") || "PANTS";
+    const img = card.getAttribute("data-img") || "assets/images/old-money-card.jpg";
+
+    window.CartModule?.addItem({
+      id: code.toLowerCase(),
+      name: title,
+      brand: "Cross Country",
+      fit: title,
+      code: code,
+      size: "Set (30–36)",
+      img: img
+    });
+
+    // Provide feedback toast
+    FavoriteModule?.showToast(`🛒 Added "${title}" (${price}) to cart!`);
+  }
+};
+
+window.FeaturedCarousel = FeaturedCarousel;
+
+// Initialize components once DOM is loaded
 if (typeof document !== "undefined") {
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", () => FavoriteModule.syncButtons());
+    document.addEventListener("DOMContentLoaded", () => {
+      FavoriteModule.syncButtons();
+      FeaturedCarousel.init();
+    });
   } else {
     FavoriteModule.syncButtons();
+    FeaturedCarousel.init();
   }
 }
 
