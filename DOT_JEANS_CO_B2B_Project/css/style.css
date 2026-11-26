@@ -2096,22 +2096,23 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 22px;
-  min-height: 520px;
+  gap: 24px;
+  min-height: 720px;
   perspective: 1200px;
   transition: all 0.5s ease;
 }
 
-/* Individual Product Card */
+/* Individual Product Card (Full Details Specification) */
 .featured-card {
-  flex: 0 0 250px;
-  width: 250px;
-  height: 470px;
+  flex: 0 0 360px;
+  width: 360px;
+  max-width: 380px;
   background: #ffffff;
-  border-radius: 24px;
-  padding: 16px 16px 20px;
-  box-shadow: 0 12px 30px rgba(160, 130, 95, 0.1);
-  border: 1px solid rgba(230, 218, 202, 0.45);
+  border-radius: 28px;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   display: flex;
   flex-direction: column;
   position: relative;
@@ -2122,32 +2123,105 @@ a {
 
 /* Active / Center Card (Elevated & Enlarged) */
 .featured-card.is-active {
-  transform: scale(1.12) translateY(-10px);
+  transform: scale(1.05) translateY(-8px);
   z-index: 10;
-  box-shadow: 0 26px 60px rgba(150, 115, 80, 0.22);
-  border-color: rgba(190, 160, 125, 0.35);
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.16);
+  border-color: rgba(0, 0, 0, 0.12);
   cursor: default;
 }
 
 /* Sibling Cards (Left 1 & Right 1) */
 .featured-card.is-prev,
 .featured-card.is-next {
-  transform: scale(0.96);
+  transform: scale(0.92);
   z-index: 5;
-  opacity: 0.95;
+  opacity: 0.88;
 }
 
 /* Far Cards (Left 2 & Right 2) */
 .featured-card.is-far-prev,
 .featured-card.is-far-next {
-  transform: scale(0.88);
+  transform: scale(0.82);
   z-index: 2;
-  opacity: 0.82;
+  opacity: 0.65;
 }
 
 /* Hidden Cards */
 .featured-card.is-hidden {
   display: none;
+}
+
+.featured-card .single-card-media {
+  height: 240px;
+  aspect-ratio: auto;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: #f5f4f0;
+}
+
+.featured-card .single-card-body {
+  padding: 22px 24px 26px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Swatch Color Variations */
+.swatch-circle.swatch-blue { background-color: #2b5078; }
+.swatch-circle.swatch-light-blue { background-color: #8da4be; }
+.swatch-circle.swatch-indigo { background-color: #1a2a44; }
+.swatch-circle.swatch-ivory { background-color: #e8e2d5; }
+.swatch-circle.swatch-olive { background-color: #555d48; }
+.swatch-circle.swatch-grey { background-color: #7b7f87; }
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .featured-cards-track {
+    gap: 16px;
+  }
+  .featured-card {
+    flex: 0 0 320px;
+    width: 320px;
+  }
+  .featured-card .single-card-media {
+    height: 210px;
+  }
+  .featured-card .single-card-body {
+    padding: 18px 18px 22px;
+  }
+}
+
+@media (max-width: 992px) {
+  .featured-carousel-container {
+    padding: 20px 20px 30px;
+  }
+  .featured-cards-track {
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding: 20px 10px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 18px;
+    min-height: auto;
+  }
+  .featured-card {
+    flex: 0 0 320px;
+    width: 320px;
+    scroll-snap-align: center;
+  }
+  .featured-card.is-active,
+  .featured-card.is-prev,
+  .featured-card.is-next,
+  .featured-card.is-far-prev,
+  .featured-card.is-far-next {
+    transform: none;
+    opacity: 1;
+  }
+  .featured-card.is-active {
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.14);
+    border-color: rgba(0, 0, 0, 0.18);
+  }
 }
 
 /* Card Top Bar (Badge + Heart) */

@@ -313,161 +313,481 @@
     <div class="featured-cards-track" id="featuredCardsTrack">
       
       <!-- Card 0: Wide Leg Denim -->
-      <div class="featured-card" data-index="0" data-code="WIDE-LEG" data-title="Wide Leg Denim" data-price="$89.99" data-img="assets/images/category-wide-leg.jpg">
-        <div class="featured-card-top">
-          <span class="featured-card-badge">NEW</span>
-          <button type="button" class="featured-card-heart" aria-label="Favorite Wide Leg" onclick="event.stopPropagation(); FavoriteModule.toggle(this, 'Wide Leg Denim', 'WIDE-LEG')">
+      <div class="featured-card" id="featuredCardWide" data-index="0" data-code="WIDE" data-title="Wide Leg Denim">
+        <div class="single-card-media" onclick="Widgets.openLightbox('assets/images/category-wide-leg.jpg', 'Cross Country — Wide Leg Denim', 'Code: WIDE • Wholesale Only • 1 Set (5 Pcs) • Sizes: 30, 32, 34, 36')">
+          <div class="media-badges-group">
+            <span class="media-badge-pill">New Arrival</span>
+            <span class="media-badge-pill badge-wholesale">Wholesale Only</span>
+          </div>
+          <button type="button" class="card-fav-btn" aria-label="Add Wide Leg to Favorites" onclick="event.stopPropagation(); FavoriteModule.toggle(this, 'Wide Leg Denim (CODE: WIDE)', 'WIDE')">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
             </svg>
           </button>
+          <img src="assets/images/category-wide-leg.jpg" alt="Cross Country Wide Leg Denim" class="single-card-img">
         </div>
-        <div class="featured-card-media" onclick="Widgets.openLightbox('assets/images/category-wide-leg.jpg', 'Wide Leg Denim', 'Code: WIDE-LEG • Premium Denim Collection')">
-          <img src="assets/images/category-wide-leg.jpg" alt="Wide Leg Denim" class="featured-card-img">
-        </div>
-        <div class="featured-card-dots">
-          <span class="active"></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="featured-card-info">
-          <h3 class="featured-card-title">Wide Leg Denim</h3>
-          <p class="featured-card-desc">Track your fitness and stay connected.</p>
-          <div class="featured-card-rating">
-            <span class="star-icon">★</span>
-            <span>4.6 (89)</span>
+
+        <div class="single-card-body">
+          <div class="single-card-overline">
+            <span class="overline-text">CROSS COUNTRY</span>
+            <span class="overline-rule"></span>
+            <span class="product-code-badge">CODE: WIDE</span>
           </div>
-          <div class="featured-card-footer">
-            <span class="featured-card-price">$89.99</span>
-            <div class="featured-btn-holder"></div>
+          <h3 class="single-card-title">Wide Leg Denim</h3>
+          <div class="single-card-specs">
+            <div class="spec-item">
+              <svg class="spec-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 3h12v4l-1 14h-4l-1-10-1 10H7L6 7V3z"/>
+                <path d="M6 7h12"/>
+                <path d="M10 7v3"/>
+                <path d="M14 7v3"/>
+              </svg>
+              <span class="spec-primary-text">1 Set (5 Pcs)</span>
+            </div>
+            <div class="spec-vertical-rule"></div>
+            <div class="spec-item">
+              <svg class="spec-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2C6.5 2 2 6.5 2 12c0 2.2 0.8 4.2 2.2 5.8 1.4 1.6 3.3 2.2 5.3 2.2 1.4 0 2.5-1.1 2.5-2.5 0-0.7-0.3-1.3-0.7-1.8-0.5-0.5-0.8-1.2-0.8-2 0-1.7 1.3-3 3-3h1.5c4.1 0 7.5-3.4 7.5-7.5C22 5.4 17.5 2 12 2z"/>
+                <circle cx="7.5" cy="8.5" r="1.2" fill="currentColor"/>
+                <circle cx="12" cy="6.5" r="1.2" fill="currentColor"/>
+                <circle cx="16.5" cy="8.5" r="1.2" fill="currentColor"/>
+              </svg>
+              <div class="spec-stacked-text">
+                <span>Multiple Colours</span>
+                <span>Available</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-color-swatches">
+            <span class="swatches-label">Colour:</span>
+            <div class="swatches-pills">
+              <button type="button" class="color-swatch-btn active" data-color="blue" onclick="event.stopPropagation(); ProductCardModule.switchColor(this, 'blue', 'featuredCardWide')">
+                <span class="swatch-circle swatch-blue"></span>
+                <span>Vintage Blue</span>
+              </button>
+              <button type="button" class="color-swatch-btn" data-color="fade" onclick="event.stopPropagation(); ProductCardModule.switchColor(this, 'fade', 'featuredCardWide')">
+                <span class="swatch-circle swatch-light-blue"></span>
+                <span>Light Fade</span>
+              </button>
+            </div>
+          </div>
+          <div class="single-card-sizes">
+            <span class="sizes-heading">Sizes:</span>
+            <div class="sizes-box-group">
+              <button type="button" class="size-btn" data-size="30" onclick="event.stopPropagation(); ProductCardModule.selectSize(this, 'featuredCardWide')">30</button>
+              <button type="button" class="size-btn active" data-size="32" onclick="event.stopPropagation(); ProductCardModule.selectSize(this, 'featuredCardWide')">32</button>
+              <button type="button" class="size-btn" data-size="34" onclick="event.stopPropagation(); ProductCardModule.selectSize(this, 'featuredCardWide')">34</button>
+              <button type="button" class="size-btn" data-size="36" onclick="event.stopPropagation(); ProductCardModule.selectSize(this, 'featuredCardWide')">36</button>
+            </div>
+          </div>
+          <div class="single-card-actions">
+            <button type="button" class="single-card-wa-btn" onclick="event.stopPropagation(); ProductCardModule.sendWhatsApp('featuredCardWide')">
+              <svg class="wa-glyph" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c.969.541 1.807.828 2.806.828 3.182 0 5.768-2.587 5.768-5.767 0-3.18-2.586-5.766-5.768-5.766zm3.385 8.163c-.144.405-.837.774-1.17.825-.311.048-.71.077-2.072-.486-1.635-.678-2.686-2.348-2.768-2.457-.082-.109-.661-.88-.661-1.677 0-.797.419-1.189.569-1.352.15-.163.328-.204.437-.204.109 0 .219.001.315.006.101.005.236-.039.369.28.144.348.492 1.2.535 1.288.043.088.072.191.014.307-.058.116-.087.189-.174.29-.087.101-.183.226-.262.304-.087.086-.177.179-.076.353.101.174.45 1.054 1.34 1.848.71.633 1.309.829 1.493.916.184.087.291.073.399-.051.109-.124.465-.541.589-.726.124-.185.247-.154.415-.093.167.062 1.062.5 1.244.591.182.091.304.135.348.212.044.077.044.448-.1 1.025z"/>
+              </svg>
+              <span>WhatsApp Enquiry</span>
+              <span class="btn-arrow-icon">&rarr;</span>
+            </button>
+            <div class="card-secondary-row">
+              <button type="button" class="card-inline-fav-btn" onclick="event.stopPropagation(); FavoriteModule.toggle(this, 'Wide Leg Denim (CODE: WIDE)', 'WIDE')">
+                <svg class="heart-icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+                <span class="fav-text">Favorite</span>
+              </button>
+              <button type="button" class="card-add-bag-btn" onclick="event.stopPropagation(); ProductCardModule.addToBag('featuredCardWide')">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                  <line x1="3" y1="6" x2="21" y2="6"/>
+                  <path d="M16 10a4 4 0 0 1-8 0"/>
+                </svg>
+                <span>Add to Bag</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Card 1: Straight Fit Jeans -->
-      <div class="featured-card" data-index="1" data-code="STRAIGHT" data-title="Straight Fit Jeans" data-price="$99.99" data-img="assets/images/category-straight-fit.jpg">
-        <div class="featured-card-top">
-          <span class="featured-card-badge">TRENDING</span>
-          <button type="button" class="featured-card-heart" aria-label="Favorite Straight Fit" onclick="event.stopPropagation(); FavoriteModule.toggle(this, 'Straight Fit Jeans', 'STRAIGHT')">
+      <div class="featured-card" id="featuredCardStraight" data-index="1" data-code="STR" data-title="Straight Fit Jeans">
+        <div class="single-card-media" onclick="Widgets.openLightbox('assets/images/category-straight-fit.jpg', 'Cross Country — Straight Fit Jeans', 'Code: STR • Wholesale Only • 1 Set (5 Pcs) • Sizes: 28, 30, 32, 34')">
+          <div class="media-badges-group">
+            <span class="media-badge-pill">Trending</span>
+            <span class="media-badge-pill badge-wholesale">Wholesale Only</span>
+          </div>
+          <button type="button" class="card-fav-btn" aria-label="Add Straight Fit to Favorites" onclick="event.stopPropagation(); FavoriteModule.toggle(this, 'Straight Fit Jeans (CODE: STR)', 'STR')">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
             </svg>
           </button>
+          <img src="assets/images/category-straight-fit.jpg" alt="Cross Country Straight Fit Jeans" class="single-card-img">
         </div>
-        <div class="featured-card-media" onclick="Widgets.openLightbox('assets/images/category-straight-fit.jpg', 'Straight Fit Jeans', 'Code: STRAIGHT • Cross Country Denim')">
-          <img src="assets/images/category-straight-fit.jpg" alt="Straight Fit Jeans" class="featured-card-img">
-        </div>
-        <div class="featured-card-dots">
-          <span class="active"></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="featured-card-info">
-          <h3 class="featured-card-title">Straight Fit Jeans</h3>
-          <p class="featured-card-desc">Lightweight and comfortable for everyday run.</p>
-          <div class="featured-card-rating">
-            <span class="star-icon">★</span>
-            <span>4.7 (98)</span>
+
+        <div class="single-card-body">
+          <div class="single-card-overline">
+            <span class="overline-text">CROSS COUNTRY</span>
+            <span class="overline-rule"></span>
+            <span class="product-code-badge">CODE: STR</span>
           </div>
-          <div class="featured-card-footer">
-            <span class="featured-card-price">$99.99</span>
-            <div class="featured-btn-holder"></div>
+          <h3 class="single-card-title">Straight Fit Jeans</h3>
+          <div class="single-card-specs">
+            <div class="spec-item">
+              <svg class="spec-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 3h12v4l-1 14h-4l-1-10-1 10H7L6 7V3z"/>
+                <path d="M6 7h12"/>
+                <path d="M10 7v3"/>
+                <path d="M14 7v3"/>
+              </svg>
+              <span class="spec-primary-text">1 Set (5 Pcs)</span>
+            </div>
+            <div class="spec-vertical-rule"></div>
+            <div class="spec-item">
+              <svg class="spec-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2C6.5 2 2 6.5 2 12c0 2.2 0.8 4.2 2.2 5.8 1.4 1.6 3.3 2.2 5.3 2.2 1.4 0 2.5-1.1 2.5-2.5 0-0.7-0.3-1.3-0.7-1.8-0.5-0.5-0.8-1.2-0.8-2 0-1.7 1.3-3 3-3h1.5c4.1 0 7.5-3.4 7.5-7.5C22 5.4 17.5 2 12 2z"/>
+                <circle cx="7.5" cy="8.5" r="1.2" fill="currentColor"/>
+                <circle cx="12" cy="6.5" r="1.2" fill="currentColor"/>
+                <circle cx="16.5" cy="8.5" r="1.2" fill="currentColor"/>
+              </svg>
+              <div class="spec-stacked-text">
+                <span>Multiple Colours</span>
+                <span>Available</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-color-swatches">
+            <span class="swatches-label">Colour:</span>
+            <div class="swatches-pills">
+              <button type="button" class="color-swatch-btn active" data-color="classic" onclick="event.stopPropagation(); ProductCardModule.switchColor(this, 'classic', 'featuredCardStraight')">
+                <span class="swatch-circle swatch-indigo"></span>
+                <span>Classic Blue</span>
+              </button>
+              <button type="button" class="color-swatch-btn" data-color="washed" onclick="event.stopPropagation(); ProductCardModule.switchColor(this, 'washed', 'featuredCardStraight')">
+                <span class="swatch-circle swatch-blue"></span>
+                <span>Washed Blue</span>
+              </button>
+            </div>
+          </div>
+          <div class="single-card-sizes">
+            <span class="sizes-heading">Sizes:</span>
+            <div class="sizes-box-group">
+              <button type="button" class="size-btn" data-size="28" onclick="event.stopPropagation(); ProductCardModule.selectSize(this, 'featuredCardStraight')">28</button>
+              <button type="button" class="size-btn" data-size="30" onclick="event.stopPropagation(); ProductCardModule.selectSize(this, 'featuredCardStraight')">30</button>
+              <button type="button" class="size-btn active" data-size="32" onclick="event.stopPropagation(); ProductCardModule.selectSize(this, 'featuredCardStraight')">32</button>
+              <button type="button" class="size-btn" data-size="34" onclick="event.stopPropagation(); ProductCardModule.selectSize(this, 'featuredCardStraight')">34</button>
+            </div>
+          </div>
+          <div class="single-card-actions">
+            <button type="button" class="single-card-wa-btn" onclick="event.stopPropagation(); ProductCardModule.sendWhatsApp('featuredCardStraight')">
+              <svg class="wa-glyph" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c.969.541 1.807.828 2.806.828 3.182 0 5.768-2.587 5.768-5.767 0-3.18-2.586-5.766-5.768-5.766zm3.385 8.163c-.144.405-.837.774-1.17.825-.311.048-.71.077-2.072-.486-1.635-.678-2.686-2.348-2.768-2.457-.082-.109-.661-.88-.661-1.677 0-.797.419-1.189.569-1.352.15-.163.328-.204.437-.204.109 0 .219.001.315.006.101.005.236-.039.369.28.144.348.492 1.2.535 1.288.043.088.072.191.014.307-.058.116-.087.189-.174.29-.087.101-.183.226-.262.304-.087.086-.177.179-.076.353.101.174.45 1.054 1.34 1.848.71.633 1.309.829 1.493.916.184.087.291.073.399-.051.109-.124.465-.541.589-.726.124-.185.247-.154.415-.093.167.062 1.062.5 1.244.591.182.091.304.135.348.212.044.077.044.448-.1 1.025z"/>
+              </svg>
+              <span>WhatsApp Enquiry</span>
+              <span class="btn-arrow-icon">&rarr;</span>
+            </button>
+            <div class="card-secondary-row">
+              <button type="button" class="card-inline-fav-btn" onclick="event.stopPropagation(); FavoriteModule.toggle(this, 'Straight Fit Jeans (CODE: STR)', 'STR')">
+                <svg class="heart-icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+                <span class="fav-text">Favorite</span>
+              </button>
+              <button type="button" class="card-add-bag-btn" onclick="event.stopPropagation(); ProductCardModule.addToBag('featuredCardStraight')">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                  <line x1="3" y1="6" x2="21" y2="6"/>
+                  <path d="M16 10a4 4 0 0 1-8 0"/>
+                </svg>
+                <span>Add to Bag</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Card 2: Old Money Trouser (BEST SELLER - ACTIVE CENTER) -->
-      <div class="featured-card is-active" data-index="2" data-code="OLD" data-title="Old Money Trouser" data-price="$129.99" data-img="assets/images/old-money-card.jpg">
-        <div class="featured-card-top">
-          <span class="featured-card-badge">BEST SELLER</span>
-          <button type="button" class="featured-card-heart" aria-label="Favorite Old Money" onclick="event.stopPropagation(); FavoriteModule.toggle(this, 'Old Money Trouser', 'OLD')">
+      <!-- Card 2: Old Money Trouser (BEST SELLER - ACTIVE CENTER - EXACT REFERENCE) -->
+      <div class="featured-card is-active" id="featuredCardOldMoney" data-index="2" data-code="OLD" data-title="Old Money">
+        <div class="single-card-media" onclick="Widgets.openLightbox('assets/images/old-money-card.jpg', 'Cross Country — Old Money', 'Code: OLD • Wholesale Only • 1 Set (5 Pcs) • Sizes: 30, 32, 34, 36')">
+          <div class="media-badges-group">
+            <span class="media-badge-pill">New Arrival</span>
+            <span class="media-badge-pill badge-wholesale">Wholesale Only</span>
+          </div>
+          <button type="button" class="card-fav-btn" aria-label="Add Old Money to Favorites" onclick="event.stopPropagation(); FavoriteModule.toggle(this, 'Old Money (CODE: OLD)', 'OLD')">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
             </svg>
           </button>
+          <img src="assets/images/old-money-card.jpg" alt="Cross Country Old Money Trouser" class="single-card-img" onerror="this.src='assets/images/old-money-alt.jpg'">
         </div>
-        <div class="featured-card-media" onclick="Widgets.openLightbox('assets/images/old-money-card.jpg', 'Old Money Trouser', 'Code: OLD • Sizes: 30 to 36 • Wholesale Only')">
-          <img src="assets/images/old-money-card.jpg" alt="Old Money Trouser" class="featured-card-img">
-        </div>
-        <div class="featured-card-dots">
-          <span class="active"></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="featured-card-info">
-          <h3 class="featured-card-title">Old Money Trouser</h3>
-          <p class="featured-card-desc">High quality luxury drape with premium comfort.</p>
-          <div class="featured-card-rating">
-            <span class="star-icon">★</span>
-            <span>4.8 (120)</span>
+
+        <div class="single-card-body">
+          <div class="single-card-overline">
+            <span class="overline-text">CROSS COUNTRY</span>
+            <span class="overline-rule"></span>
+            <span class="product-code-badge">CODE: OLD</span>
           </div>
-          <div class="featured-card-footer">
-            <span class="featured-card-price">$129.99</span>
-            <div class="featured-btn-holder"></div>
+          <h3 class="single-card-title">Old Money</h3>
+          <div class="single-card-specs">
+            <div class="spec-item">
+              <svg class="spec-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 3h12v4l-1 14h-4l-1-10-1 10H7L6 7V3z"/>
+                <path d="M6 7h12"/>
+                <path d="M10 7v3"/>
+                <path d="M14 7v3"/>
+              </svg>
+              <span class="spec-primary-text">1 Set (5 Pcs)</span>
+            </div>
+            <div class="spec-vertical-rule"></div>
+            <div class="spec-item">
+              <svg class="spec-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2C6.5 2 2 6.5 2 12c0 2.2 0.8 4.2 2.2 5.8 1.4 1.6 3.3 2.2 5.3 2.2 1.4 0 2.5-1.1 2.5-2.5 0-0.7-0.3-1.3-0.7-1.8-0.5-0.5-0.8-1.2-0.8-2 0-1.7 1.3-3 3-3h1.5c4.1 0 7.5-3.4 7.5-7.5C22 5.4 17.5 2 12 2z"/>
+                <circle cx="7.5" cy="8.5" r="1.2" fill="currentColor"/>
+                <circle cx="12" cy="6.5" r="1.2" fill="currentColor"/>
+                <circle cx="16.5" cy="8.5" r="1.2" fill="currentColor"/>
+              </svg>
+              <div class="spec-stacked-text">
+                <span>Multiple Colours</span>
+                <span>Available</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-color-swatches">
+            <span class="swatches-label">Colour:</span>
+            <div class="swatches-pills">
+              <button type="button" class="color-swatch-btn active" data-color="black" onclick="event.stopPropagation(); ProductCardModule.switchColor(this, 'black', 'featuredCardOldMoney')">
+                <span class="swatch-circle swatch-black"></span>
+                <span>Jet Black</span>
+              </button>
+              <button type="button" class="color-swatch-btn" data-color="beige" onclick="event.stopPropagation(); ProductCardModule.switchColor(this, 'beige', 'featuredCardOldMoney')">
+                <span class="swatch-circle swatch-beige"></span>
+                <span>Sand Beige</span>
+              </button>
+            </div>
+          </div>
+          <div class="single-card-sizes">
+            <span class="sizes-heading">Sizes:</span>
+            <div class="sizes-box-group">
+              <button type="button" class="size-btn" data-size="30" onclick="event.stopPropagation(); ProductCardModule.selectSize(this, 'featuredCardOldMoney')">30</button>
+              <button type="button" class="size-btn active" data-size="32" onclick="event.stopPropagation(); ProductCardModule.selectSize(this, 'featuredCardOldMoney')">32</button>
+              <button type="button" class="size-btn" data-size="34" onclick="event.stopPropagation(); ProductCardModule.selectSize(this, 'featuredCardOldMoney')">34</button>
+              <button type="button" class="size-btn" data-size="36" onclick="event.stopPropagation(); ProductCardModule.selectSize(this, 'featuredCardOldMoney')">36</button>
+            </div>
+          </div>
+          <div class="single-card-actions">
+            <button type="button" class="single-card-wa-btn" onclick="event.stopPropagation(); ProductCardModule.sendWhatsApp('featuredCardOldMoney')">
+              <svg class="wa-glyph" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c.969.541 1.807.828 2.806.828 3.182 0 5.768-2.587 5.768-5.767 0-3.18-2.586-5.766-5.768-5.766zm3.385 8.163c-.144.405-.837.774-1.17.825-.311.048-.71.077-2.072-.486-1.635-.678-2.686-2.348-2.768-2.457-.082-.109-.661-.88-.661-1.677 0-.797.419-1.189.569-1.352.15-.163.328-.204.437-.204.109 0 .219.001.315.006.101.005.236-.039.369.28.144.348.492 1.2.535 1.288.043.088.072.191.014.307-.058.116-.087.189-.174.29-.087.101-.183.226-.262.304-.087.086-.177.179-.076.353.101.174.45 1.054 1.34 1.848.71.633 1.309.829 1.493.916.184.087.291.073.399-.051.109-.124.465-.541.589-.726.124-.185.247-.154.415-.093.167.062 1.062.5 1.244.591.182.091.304.135.348.212.044.077.044.448-.1 1.025z"/>
+              </svg>
+              <span>WhatsApp Enquiry</span>
+              <span class="btn-arrow-icon">&rarr;</span>
+            </button>
+            <div class="card-secondary-row">
+              <button type="button" class="card-inline-fav-btn" onclick="event.stopPropagation(); FavoriteModule.toggle(this, 'Old Money (CODE: OLD)', 'OLD')">
+                <svg class="heart-icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+                <span class="fav-text">Favorite</span>
+              </button>
+              <button type="button" class="card-add-bag-btn" onclick="event.stopPropagation(); ProductCardModule.addToBag('featuredCardOldMoney')">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                  <line x1="3" y1="6" x2="21" y2="6"/>
+                  <path d="M16 10a4 4 0 0 1-8 0"/>
+                </svg>
+                <span>Add to Bag</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Card 3: Linen Classic Pant -->
-      <div class="featured-card" data-index="3" data-code="LINEN" data-title="Linen Classic Pant" data-price="$109.99" data-img="assets/images/category-linen-pant.jpg">
-        <div class="featured-card-top">
-          <span class="featured-card-badge">POPULAR</span>
-          <button type="button" class="featured-card-heart" aria-label="Favorite Linen Pant" onclick="event.stopPropagation(); FavoriteModule.toggle(this, 'Linen Classic Pant', 'LINEN')">
+      <div class="featured-card" id="featuredCardLinen" data-index="3" data-code="LINEN" data-title="Linen Classic Pant">
+        <div class="single-card-media" onclick="Widgets.openLightbox('assets/images/category-linen-pant.jpg', 'Cross Country — Linen Classic Pant', 'Code: LINEN • Wholesale Only • 1 Set (5 Pcs) • Sizes: 30, 32, 34, 36')">
+          <div class="media-badges-group">
+            <span class="media-badge-pill">Popular</span>
+            <span class="media-badge-pill badge-wholesale">Wholesale Only</span>
+          </div>
+          <button type="button" class="card-fav-btn" aria-label="Add Linen Pant to Favorites" onclick="event.stopPropagation(); FavoriteModule.toggle(this, 'Linen Classic Pant (CODE: LINEN)', 'LINEN')">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
             </svg>
           </button>
+          <img src="assets/images/category-linen-pant.jpg" alt="Cross Country Linen Classic Pant" class="single-card-img">
         </div>
-        <div class="featured-card-media" onclick="Widgets.openLightbox('assets/images/category-linen-pant.jpg', 'Linen Classic Pant', 'Code: LINEN • 100% Breathable Fit')">
-          <img src="assets/images/category-linen-pant.jpg" alt="Linen Classic Pant" class="featured-card-img">
-        </div>
-        <div class="featured-card-dots">
-          <span class="active"></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="featured-card-info">
-          <h3 class="featured-card-title">Linen Classic Pant</h3>
-          <p class="featured-card-desc">Capture moments with airy natural clarity.</p>
-          <div class="featured-card-rating">
-            <span class="star-icon">★</span>
-            <span>4.9 (60)</span>
+
+        <div class="single-card-body">
+          <div class="single-card-overline">
+            <span class="overline-text">CROSS COUNTRY</span>
+            <span class="overline-rule"></span>
+            <span class="product-code-badge">CODE: LINEN</span>
           </div>
-          <div class="featured-card-footer">
-            <span class="featured-card-price">$109.99</span>
-            <div class="featured-btn-holder"></div>
+          <h3 class="single-card-title">Linen Classic Pant</h3>
+          <div class="single-card-specs">
+            <div class="spec-item">
+              <svg class="spec-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 3h12v4l-1 14h-4l-1-10-1 10H7L6 7V3z"/>
+                <path d="M6 7h12"/>
+                <path d="M10 7v3"/>
+                <path d="M14 7v3"/>
+              </svg>
+              <span class="spec-primary-text">1 Set (5 Pcs)</span>
+            </div>
+            <div class="spec-vertical-rule"></div>
+            <div class="spec-item">
+              <svg class="spec-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2C6.5 2 2 6.5 2 12c0 2.2 0.8 4.2 2.2 5.8 1.4 1.6 3.3 2.2 5.3 2.2 1.4 0 2.5-1.1 2.5-2.5 0-0.7-0.3-1.3-0.7-1.8-0.5-0.5-0.8-1.2-0.8-2 0-1.7 1.3-3 3-3h1.5c4.1 0 7.5-3.4 7.5-7.5C22 5.4 17.5 2 12 2z"/>
+                <circle cx="7.5" cy="8.5" r="1.2" fill="currentColor"/>
+                <circle cx="12" cy="6.5" r="1.2" fill="currentColor"/>
+                <circle cx="16.5" cy="8.5" r="1.2" fill="currentColor"/>
+              </svg>
+              <div class="spec-stacked-text">
+                <span>Multiple Colours</span>
+                <span>Available</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-color-swatches">
+            <span class="swatches-label">Colour:</span>
+            <div class="swatches-pills">
+              <button type="button" class="color-swatch-btn active" data-color="ivory" onclick="event.stopPropagation(); ProductCardModule.switchColor(this, 'ivory', 'featuredCardLinen')">
+                <span class="swatch-circle swatch-ivory"></span>
+                <span>Natural Ivory</span>
+              </button>
+              <button type="button" class="color-swatch-btn" data-color="olive" onclick="event.stopPropagation(); ProductCardModule.switchColor(this, 'olive', 'featuredCardLinen')">
+                <span class="swatch-circle swatch-olive"></span>
+                <span>Olive Khaki</span>
+              </button>
+            </div>
+          </div>
+          <div class="single-card-sizes">
+            <span class="sizes-heading">Sizes:</span>
+            <div class="sizes-box-group">
+              <button type="button" class="size-btn" data-size="30" onclick="event.stopPropagation(); ProductCardModule.selectSize(this, 'featuredCardLinen')">30</button>
+              <button type="button" class="size-btn active" data-size="32" onclick="event.stopPropagation(); ProductCardModule.selectSize(this, 'featuredCardLinen')">32</button>
+              <button type="button" class="size-btn" data-size="34" onclick="event.stopPropagation(); ProductCardModule.selectSize(this, 'featuredCardLinen')">34</button>
+              <button type="button" class="size-btn" data-size="36" onclick="event.stopPropagation(); ProductCardModule.selectSize(this, 'featuredCardLinen')">36</button>
+            </div>
+          </div>
+          <div class="single-card-actions">
+            <button type="button" class="single-card-wa-btn" onclick="event.stopPropagation(); ProductCardModule.sendWhatsApp('featuredCardLinen')">
+              <svg class="wa-glyph" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c.969.541 1.807.828 2.806.828 3.182 0 5.768-2.587 5.768-5.767 0-3.18-2.586-5.766-5.768-5.766zm3.385 8.163c-.144.405-.837.774-1.17.825-.311.048-.71.077-2.072-.486-1.635-.678-2.686-2.348-2.768-2.457-.082-.109-.661-.88-.661-1.677 0-.797.419-1.189.569-1.352.15-.163.328-.204.437-.204.109 0 .219.001.315.006.101.005.236-.039.369.28.144.348.492 1.2.535 1.288.043.088.072.191.014.307-.058.116-.087.189-.174.29-.087.101-.183.226-.262.304-.087.086-.177.179-.076.353.101.174.45 1.054 1.34 1.848.71.633 1.309.829 1.493.916.184.087.291.073.399-.051.109-.124.465-.541.589-.726.124-.185.247-.154.415-.093.167.062 1.062.5 1.244.591.182.091.304.135.348.212.044.077.044.448-.1 1.025z"/>
+              </svg>
+              <span>WhatsApp Enquiry</span>
+              <span class="btn-arrow-icon">&rarr;</span>
+            </button>
+            <div class="card-secondary-row">
+              <button type="button" class="card-inline-fav-btn" onclick="event.stopPropagation(); FavoriteModule.toggle(this, 'Linen Classic Pant (CODE: LINEN)', 'LINEN')">
+                <svg class="heart-icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+                <span class="fav-text">Favorite</span>
+              </button>
+              <button type="button" class="card-add-bag-btn" onclick="event.stopPropagation(); ProductCardModule.addToBag('featuredCardLinen')">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                  <line x1="3" y1="6" x2="21" y2="6"/>
+                  <path d="M16 10a4 4 0 0 1-8 0"/>
+                </svg>
+                <span>Add to Bag</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Card 4: Athletic Track Pant -->
-      <div class="featured-card" data-index="4" data-code="TRACKS" data-title="Athletic Track Pant" data-price="$79.99" data-img="assets/images/category-tracks.jpg">
-        <div class="featured-card-top">
-          <span class="featured-card-badge">NEW</span>
-          <button type="button" class="featured-card-heart" aria-label="Favorite Track Pant" onclick="event.stopPropagation(); FavoriteModule.toggle(this, 'Athletic Track Pant', 'TRACKS')">
+      <div class="featured-card" id="featuredCardTracks" data-index="4" data-code="TRACK" data-title="Athletic Track Pant">
+        <div class="single-card-media" onclick="Widgets.openLightbox('assets/images/category-tracks.jpg', 'Cross Country — Athletic Track Pant', 'Code: TRACK • Wholesale Only • 1 Set (5 Pcs) • Sizes: 30, 32, 34, 36')">
+          <div class="media-badges-group">
+            <span class="media-badge-pill">New Arrival</span>
+            <span class="media-badge-pill badge-wholesale">Wholesale Only</span>
+          </div>
+          <button type="button" class="card-fav-btn" aria-label="Add Track Pant to Favorites" onclick="event.stopPropagation(); FavoriteModule.toggle(this, 'Athletic Track Pant (CODE: TRACK)', 'TRACK')">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
             </svg>
           </button>
+          <img src="assets/images/category-tracks.jpg" alt="Cross Country Athletic Track Pant" class="single-card-img">
         </div>
-        <div class="featured-card-media" onclick="Widgets.openLightbox('assets/images/category-tracks.jpg', 'Athletic Track Pant', 'Code: TRACKS • Side Stripe Utility')">
-          <img src="assets/images/category-tracks.jpg" alt="Athletic Track Pant" class="featured-card-img">
-        </div>
-        <div class="featured-card-dots">
-          <span class="active"></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="featured-card-info">
-          <h3 class="featured-card-title">Athletic Track Pant</h3>
-          <p class="featured-card-desc">Spacious, durable and water resistant comfort.</p>
-          <div class="featured-card-rating">
-            <span class="star-icon">★</span>
-            <span>4.5 (75)</span>
+
+        <div class="single-card-body">
+          <div class="single-card-overline">
+            <span class="overline-text">CROSS COUNTRY</span>
+            <span class="overline-rule"></span>
+            <span class="product-code-badge">CODE: TRACK</span>
           </div>
-          <div class="featured-card-footer">
-            <span class="featured-card-price">$79.99</span>
-            <div class="featured-btn-holder"></div>
+          <h3 class="single-card-title">Athletic Track Pant</h3>
+          <div class="single-card-specs">
+            <div class="spec-item">
+              <svg class="spec-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 3h12v4l-1 14h-4l-1-10-1 10H7L6 7V3z"/>
+                <path d="M6 7h12"/>
+                <path d="M10 7v3"/>
+                <path d="M14 7v3"/>
+              </svg>
+              <span class="spec-primary-text">1 Set (5 Pcs)</span>
+            </div>
+            <div class="spec-vertical-rule"></div>
+            <div class="spec-item">
+              <svg class="spec-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2C6.5 2 2 6.5 2 12c0 2.2 0.8 4.2 2.2 5.8 1.4 1.6 3.3 2.2 5.3 2.2 1.4 0 2.5-1.1 2.5-2.5 0-0.7-0.3-1.3-0.7-1.8-0.5-0.5-0.8-1.2-0.8-2 0-1.7 1.3-3 3-3h1.5c4.1 0 7.5-3.4 7.5-7.5C22 5.4 17.5 2 12 2z"/>
+                <circle cx="7.5" cy="8.5" r="1.2" fill="currentColor"/>
+                <circle cx="12" cy="6.5" r="1.2" fill="currentColor"/>
+                <circle cx="16.5" cy="8.5" r="1.2" fill="currentColor"/>
+              </svg>
+              <div class="spec-stacked-text">
+                <span>Multiple Colours</span>
+                <span>Available</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-color-swatches">
+            <span class="swatches-label">Colour:</span>
+            <div class="swatches-pills">
+              <button type="button" class="color-swatch-btn active" data-color="black" onclick="event.stopPropagation(); ProductCardModule.switchColor(this, 'black', 'featuredCardTracks')">
+                <span class="swatch-circle swatch-black"></span>
+                <span>Midnight Black</span>
+              </button>
+              <button type="button" class="color-swatch-btn" data-color="grey" onclick="event.stopPropagation(); ProductCardModule.switchColor(this, 'grey', 'featuredCardTracks')">
+                <span class="swatch-circle swatch-grey"></span>
+                <span>Heather Grey</span>
+              </button>
+            </div>
+          </div>
+          <div class="single-card-sizes">
+            <span class="sizes-heading">Sizes:</span>
+            <div class="sizes-box-group">
+              <button type="button" class="size-btn" data-size="30" onclick="event.stopPropagation(); ProductCardModule.selectSize(this, 'featuredCardTracks')">30</button>
+              <button type="button" class="size-btn active" data-size="32" onclick="event.stopPropagation(); ProductCardModule.selectSize(this, 'featuredCardTracks')">32</button>
+              <button type="button" class="size-btn" data-size="34" onclick="event.stopPropagation(); ProductCardModule.selectSize(this, 'featuredCardTracks')">34</button>
+              <button type="button" class="size-btn" data-size="36" onclick="event.stopPropagation(); ProductCardModule.selectSize(this, 'featuredCardTracks')">36</button>
+            </div>
+          </div>
+          <div class="single-card-actions">
+            <button type="button" class="single-card-wa-btn" onclick="event.stopPropagation(); ProductCardModule.sendWhatsApp('featuredCardTracks')">
+              <svg class="wa-glyph" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c.969.541 1.807.828 2.806.828 3.182 0 5.768-2.587 5.768-5.767 0-3.18-2.586-5.766-5.768-5.766zm3.385 8.163c-.144.405-.837.774-1.17.825-.311.048-.71.077-2.072-.486-1.635-.678-2.686-2.348-2.768-2.457-.082-.109-.661-.88-.661-1.677 0-.797.419-1.189.569-1.352.15-.163.328-.204.437-.204.109 0 .219.001.315.006.101.005.236-.039.369.28.144.348.492 1.2.535 1.288.043.088.072.191.014.307-.058.116-.087.189-.174.29-.087.101-.183.226-.262.304-.087.086-.177.179-.076.353.101.174.45 1.054 1.34 1.848.71.633 1.309.829 1.493.916.184.087.291.073.399-.051.109-.124.465-.541.589-.726.124-.185.247-.154.415-.093.167.062 1.062.5 1.244.591.182.091.304.135.348.212.044.077.044.448-.1 1.025z"/>
+              </svg>
+              <span>WhatsApp Enquiry</span>
+              <span class="btn-arrow-icon">&rarr;</span>
+            </button>
+            <div class="card-secondary-row">
+              <button type="button" class="card-inline-fav-btn" onclick="event.stopPropagation(); FavoriteModule.toggle(this, 'Athletic Track Pant (CODE: TRACK)', 'TRACK')">
+                <svg class="heart-icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+                <span class="fav-text">Favorite</span>
+              </button>
+              <button type="button" class="card-add-bag-btn" onclick="event.stopPropagation(); ProductCardModule.addToBag('featuredCardTracks')">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                  <line x1="3" y1="6" x2="21" y2="6"/>
+                  <path d="M16 10a4 4 0 0 1-8 0"/>
+                </svg>
+                <span>Add to Bag</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>

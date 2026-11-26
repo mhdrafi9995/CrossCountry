@@ -542,105 +542,108 @@ window.FavoriteModule = FavoriteModule;
  * Photos: Jet Black & Sand Beige
  * ==========================================================================
  */
-const OldMoneyModule = {
+/**
+ * ==========================================================================
+ * PRODUCT CARD CONTROLLER (Exact Specifications from Reference)
+ * Handles Size Selection, Color Swatches, WhatsApp B2B Inquiry, & Add to Bag
+ * ==========================================================================
+ */
+const ProductCardModule = {
   state: {
-    oldMoneyCard1: {
-      size: "32",
-      color: "Jet Black",
-      img: "assets/images/old-money-card.jpg",
-      code: "OLD",
-      title: "Old Money"
-    },
-    oldMoneyCard2: {
-      size: "32",
-      color: "Sand Beige",
-      img: "assets/images/old-money-alt.jpg",
-      code: "OLD",
-      title: "Old Money"
-    }
+    featuredCardWide: { code: 'WIDE', title: 'Wide Leg Denim', size: '32', color: 'Vintage Blue', img: 'assets/images/category-wide-leg.jpg' },
+    featuredCardStraight: { code: 'STR', title: 'Straight Fit Jeans', size: '32', color: 'Classic Blue', img: 'assets/images/category-straight-fit.jpg' },
+    featuredCardOldMoney: { code: 'OLD', title: 'Old Money', size: '32', color: 'Jet Black', img: 'assets/images/old-money-card.jpg' },
+    featuredCardLinen: { code: 'LINEN', title: 'Linen Classic Pant', size: '32', color: 'Natural Ivory', img: 'assets/images/category-linen-pant.jpg' },
+    featuredCardTracks: { code: 'TRACK', title: 'Athletic Track Pant', size: '32', color: 'Midnight Black', img: 'assets/images/category-tracks.jpg' },
+    oldMoneyCard1: { code: 'OLD', title: 'Old Money', size: '32', color: 'Jet Black', img: 'assets/images/old-money-card.jpg' },
+    oldMoneyCard2: { code: 'OLD', title: 'Old Money', size: '32', color: 'Sand Beige', img: 'assets/images/old-money-alt.jpg' }
   },
 
-  selectSize(btnEl, cardId = "oldMoneyCard1") {
+  selectSize(btnEl, cardId) {
     const parent = btnEl.closest(".sizes-box-group");
     if (parent) {
       parent.querySelectorAll(".size-btn").forEach(b => b.classList.remove("active"));
     }
     btnEl.classList.add("active");
     const chosenSize = btnEl.dataset.size || "32";
-
     if (!this.state[cardId]) {
-      this.state[cardId] = { size: chosenSize, color: "Jet Black", code: "OLD", title: "Old Money" };
+      this.state[cardId] = { size: chosenSize };
     } else {
       this.state[cardId].size = chosenSize;
     }
   },
 
-  switchColor(btnEl, colorKey, cardId = "oldMoneyCard1") {
-    const card = document.getElementById(cardId) || btnEl.closest(".single-card-box");
+  switchColor(btnEl, colorKey, cardId) {
+    const card = document.getElementById(cardId) || btnEl.closest(".featured-card, .single-card-box");
     if (!card) return;
 
-    // Switch active swatch button
     const swatchesWrap = btnEl.closest(".swatches-pills");
     if (swatchesWrap) {
       swatchesWrap.querySelectorAll(".color-swatch-btn").forEach(b => b.classList.remove("active"));
       btnEl.classList.add("active");
     }
 
-    const imgEl = card.querySelector(".single-card-img");
-    const isBeige = colorKey === "beige" || colorKey === "sand";
-    const newSrc = isBeige ? "assets/images/old-money-alt.jpg" : "assets/images/old-money-card.jpg";
-    const colorName = isBeige ? "Sand Beige" : "Jet Black";
-
-    if (imgEl) {
-      imgEl.style.opacity = "0.3";
-      imgEl.style.transform = "scale(0.98)";
-      setTimeout(() => {
-        imgEl.src = newSrc;
-        imgEl.style.opacity = "1";
-        imgEl.style.transform = "scale(1)";
-      }, 150);
-    }
+    const textSpan = btnEl.querySelector("span:not(.swatch-circle)");
+    const colorName = textSpan ? textSpan.textContent.trim() : colorKey;
 
     if (!this.state[cardId]) {
-      this.state[cardId] = { size: "32", code: "OLD", title: "Old Money" };
+      this.state[cardId] = { color: colorName };
+    } else {
+      this.state[cardId].color = colorName;
     }
-    this.state[cardId].color = colorName;
-    this.state[cardId].img = newSrc;
+
+    // Dynamic image swap for Old Money
+    if (cardId.toLowerCase().includes("oldmoney")) {
+      const imgEl = card.querySelector(".single-card-img, .featured-card-img");
+      const isBeige = colorKey === "beige" || colorKey === "sand";
+      const newSrc = isBeige ? "assets/images/old-money-alt.jpg" : "assets/images/old-money-card.jpg";
+      if (imgEl) {
+        imgEl.style.opacity = "0.3";
+        setTimeout(() => {
+          imgEl.src = newSrc;
+          imgEl.style.opacity = "1";
+        }, 150);
+      }
+      this.state[cardId].img = newSrc;
+    }
   },
 
-  addToBag(cardId = "oldMoneyCard1") {
-    const itemState = this.state[cardId] || {
+  addToBag(cardId) {
+    const item = this.state[cardId] || {
+      title: "Cross Country Pants",
+      code: "PANTS",
       size: "32",
-      color: "Jet Black",
-      img: "assets/images/old-money-card.jpg",
-      code: "OLD",
-      title: "Old Money"
+      color: "Standard",
+      img: "assets/images/old-money-card.jpg"
     };
 
     window.CartModule?.addItem({
-      id: `old-money-${itemState.color.toLowerCase().replace(/\s+/g, '-')}`,
-      name: `Old Money (${itemState.color})`,
+      id: `${(item.code || 'pants').toLowerCase()}-${(item.color || 'std').toLowerCase().replace(/\s+/g, '-')}`,
+      name: `${item.title} (${item.color || 'Standard'})`,
       brand: "Cross Country",
-      fit: "Old Money",
-      code: "OLD",
-      size: `Size ${itemState.size} (Set 30–36)`,
-      img: itemState.img || "assets/images/old-money-card.jpg"
+      fit: item.title,
+      code: item.code || "PANTS",
+      size: `Size ${item.size || '32'} (1 Set / 5 Pcs)`,
+      img: item.img || "assets/images/old-money-card.jpg"
     });
+
+    FavoriteModule?.showToast(`🛒 Added "${item.title}" to bag!`);
   },
 
-  sendWhatsApp(cardId = "oldMoneyCard1") {
-    const itemState = this.state[cardId] || {
+  sendWhatsApp(cardId) {
+    const item = this.state[cardId] || {
+      title: "Cross Country Pants",
+      code: "OLD",
       size: "32",
       color: "Jet Black",
-      code: "OLD",
-      title: "Old Money"
+      img: "assets/images/old-money-card.jpg"
     };
 
     const brand = "CROSS COUNTRY";
-    const product = "Old Money";
-    const code = "OLD";
-    const size = itemState.size || "32";
-    const color = itemState.color || "Jet Black";
+    const product = item.title;
+    const code = item.code;
+    const size = item.size || "32";
+    const color = item.color || "Standard";
 
     const message =
       `*B2B Wholesale Inquiry | ${brand}*\n` +
@@ -650,23 +653,22 @@ const OldMoneyModule = {
       `• *Brand:* ${brand}\n` +
       `• *Product:* ${product}\n` +
       `• *Code:* ${code}\n` +
-      `• *Status:* New Arrival | Wholesale Only\n` +
       `• *Colorway:* ${color}\n` +
-      `• *Size Range:* 30 to 36\n` +
-      `• *Selected Size Focus:* Size ${size}\n` +
-      `• *Wholesale Pack:* 1 Set (5 Pcs)\n\n` +
-      `Please provide the wholesale price quotation, MOQ requirements, and dispatch schedule.`;
+      `• *Pack:* 1 Set (5 Pcs) Wholesale\n` +
+      `• *Selected Size Focus:* Size ${size}\n\n` +
+      `Please provide the wholesale price quotation, MOQ terms, and dispatch schedule.`;
 
     window.WhatsAppModule?.openWhatsApp(message);
   }
 };
 
-window.OldMoneyModule = OldMoneyModule;
+window.ProductCardModule = ProductCardModule;
+window.OldMoneyModule = ProductCardModule; // Backward compatibility
 
 /**
  * ==========================================================================
  * FEATURED PRODUCTS 3D COVERFLOW CAROUSEL CONTROLLER
- * Matches reference UI: 5-card perspective, active card elevated + Add to Cart
+ * Matches reference UI: 5-card perspective, active card elevated
  * ==========================================================================
  */
 const FeaturedCarousel = {
@@ -684,8 +686,16 @@ const FeaturedCarousel = {
     // Attach click events on each card
     this.cards.forEach((card, idx) => {
       card.addEventListener("click", (e) => {
-        // If clicking directly on a button or heart inside, let it handle
-        if (e.target.closest(".featured-card-heart") || e.target.closest(".featured-card-btn-full") || e.target.closest(".featured-card-btn-mini")) {
+        // If clicking directly on an interactive button or input inside, do not rotate
+        if (
+          e.target.closest("button") ||
+          e.target.closest(".card-fav-btn") ||
+          e.target.closest(".single-card-wa-btn") ||
+          e.target.closest(".size-btn") ||
+          e.target.closest(".color-swatch-btn") ||
+          e.target.closest(".card-inline-fav-btn") ||
+          e.target.closest(".card-add-bag-btn")
+        ) {
           return;
         }
         this.goTo(idx);
@@ -728,7 +738,6 @@ const FeaturedCarousel = {
     if (!this.cards || !this.cards.length) return;
 
     this.cards.forEach((card, i) => {
-      // Calculate relative position (-2, -1, 0, 1, 2)
       let offset = i - this.currentIndex;
       if (offset < -2) offset += this.totalCards;
       if (offset > 2) offset -= this.totalCards;
@@ -736,38 +745,18 @@ const FeaturedCarousel = {
       card.classList.remove("is-active", "is-prev", "is-next", "is-far-prev", "is-far-next", "is-hidden");
       card.setAttribute("data-offset", offset);
 
-      const btnHolder = card.querySelector(".featured-btn-holder");
-
       if (offset === 0) {
         card.classList.add("is-active");
-        if (btnHolder) {
-          btnHolder.innerHTML = `
-            <button type="button" class="featured-card-btn-full" aria-label="Add to Cart" onclick="event.stopPropagation(); FeaturedCarousel.addToCart(${i})">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-                <line x1="3" y1="6" x2="21" y2="6"/>
-                <path d="M16 10a4 4 0 0 1-8 0"/>
-              </svg>
-              <span>Add to Cart</span>
-            </button>`;
-        }
+      } else if (offset === -1) {
+        card.classList.add("is-prev");
+      } else if (offset === 1) {
+        card.classList.add("is-next");
+      } else if (offset === -2) {
+        card.classList.add("is-far-prev");
+      } else if (offset === 2) {
+        card.classList.add("is-far-next");
       } else {
-        if (offset === -1) card.classList.add("is-prev");
-        else if (offset === 1) card.classList.add("is-next");
-        else if (offset === -2) card.classList.add("is-far-prev");
-        else if (offset === 2) card.classList.add("is-far-next");
-        else card.classList.add("is-hidden");
-
-        if (btnHolder) {
-          btnHolder.innerHTML = `
-            <button type="button" class="featured-card-btn-mini" aria-label="Add to cart" onclick="event.stopPropagation(); FeaturedCarousel.addToCart(${i})">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-                <line x1="3" y1="6" x2="21" y2="6"/>
-                <path d="M16 10a4 4 0 0 1-8 0"/>
-              </svg>
-            </button>`;
-        }
+        card.classList.add("is-hidden");
       }
     });
 
@@ -777,29 +766,6 @@ const FeaturedCarousel = {
         dot.classList.toggle("active", i === this.currentIndex);
       });
     }
-  },
-
-  addToCart(index) {
-    const card = this.cards[index];
-    if (!card) return;
-
-    const title = card.getAttribute("data-title") || "Cross Country Pants";
-    const price = card.getAttribute("data-price") || "$129.99";
-    const code = card.getAttribute("data-code") || "PANTS";
-    const img = card.getAttribute("data-img") || "assets/images/old-money-card.jpg";
-
-    window.CartModule?.addItem({
-      id: code.toLowerCase(),
-      name: title,
-      brand: "Cross Country",
-      fit: title,
-      code: code,
-      size: "Set (30–36)",
-      img: img
-    });
-
-    // Provide feedback toast
-    FavoriteModule?.showToast(`🛒 Added "${title}" (${price}) to cart!`);
   }
 };
 
