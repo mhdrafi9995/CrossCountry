@@ -2767,6 +2767,7 @@ a {
 .swatches-pills {
   display: flex;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
 .color-swatch-btn {
@@ -3010,8 +3011,10 @@ a {
 
 .future-product-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 420px));
-  gap: 36px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 1240px;
+  margin: 0 auto;
   justify-content: center;
   align-items: stretch;
 }
@@ -3033,16 +3036,46 @@ a {
   background-color: #1c3154;
 }
 
-@media (max-width: 768px) {
+/* Single line responsive styling: smooth swipe on tablets & mobile */
+@media (max-width: 991px) {
   .future-product-section {
     padding: 45px 16px 60px;
   }
+
   .future-product-heading {
     font-size: 2rem;
   }
+
   .future-product-cards-grid {
-    grid-template-columns: 1fr;
-    gap: 28px;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 18px;
+    padding: 10px 8px 24px;
+    justify-content: flex-start;
+  }
+
+  .future-product-cards-grid .single-card-box {
+    flex: 0 0 320px;
+    max-width: 340px;
+    scroll-snap-align: center;
+  }
+
+  /* Custom subtle scrollbar for mobile swipe */
+  .future-product-cards-grid::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .future-product-cards-grid::-webkit-scrollbar-track {
+    background: #edeae4;
+    border-radius: 9999px;
+  }
+
+  .future-product-cards-grid::-webkit-scrollbar-thumb {
+    background: #111111;
+    border-radius: 9999px;
   }
 }
 
