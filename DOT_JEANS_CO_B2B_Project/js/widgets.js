@@ -407,8 +407,14 @@ const CategoryFilter = {
       }
     });
 
+    // If Wide Leg is selected, open the Full Photos Gallery!
+    if (category === "wide-leg") {
+      WideLegGallery.open(0);
+      return;
+    }
+
     // Smooth scroll down to the product catalog
-    const shopEl = document.getElementById("shop");
+    const shopEl = document.getElementById("shop") || document.getElementById("future-product");
     if (shopEl) {
       shopEl.scrollIntoView({ behavior: "smooth" });
     }
@@ -557,9 +563,9 @@ const ProductCardModule = {
     featuredCardTracks: { code: 'TRACK', title: 'Athletic Track Pant', size: '32', color: 'Midnight Black', img: 'assets/images/category-tracks.jpg' },
     oldMoneyCard1: { code: 'OLD', title: 'Old Money', size: '32', color: 'Jet Black', img: 'assets/images/old-money-card.jpg' },
     oldMoneyCard2: { code: 'OLD', title: 'Old Money', size: '32', color: 'Sand Beige', img: 'assets/images/old-money-alt.jpg' },
-    futureCard1: { code: 'WIDE', title: 'Wide Leg', brand: 'CROSS COUNTRY', pack: '1 Set (6 Pcs)', size: '30', color: 'Vintage Tint', img: 'assets/images/wide-leg-tint.jpg' },
-    futureCard2: { code: 'WIDE', title: 'Wide Leg', brand: 'CROSS COUNTRY', pack: '1 Set (6 Pcs)', size: '32', color: 'Washed Black', img: 'assets/images/wide-leg-black.jpg' },
-    futureCard3: { code: 'WIDE', title: 'Wide Leg', brand: 'CROSS COUNTRY', pack: '1 Set (6 Pcs)', size: '32', color: 'Ice Blue', img: 'assets/images/wide-leg-light-blue.jpg' }
+    futureCard1: { code: 'WIDE', title: 'Wide Leg', brand: 'CROSS COUNTRY', pack: '1 Set (6 Pcs)', size: '28 to 34 (Assorted Set)', color: 'Multiple Colours Available', img: 'assets/images/wide-leg-photo-1.jpg' },
+    futureCard2: { code: 'WIDE', title: 'Wide Leg', brand: 'CROSS COUNTRY', pack: '1 Set (6 Pcs)', size: '28 to 34 (Assorted Set)', color: 'Multiple Colours Available', img: 'assets/images/wide-leg-photo-2.jpg' },
+    futureCard3: { code: 'WIDE', title: 'Wide Leg', brand: 'CROSS COUNTRY', pack: '1 Set (6 Pcs)', size: '28 to 34 (Assorted Set)', color: 'Multiple Colours Available', img: 'assets/images/wide-leg-photo-3.jpg' }
   },
 
   selectSize(btnEl, cardId) {
@@ -669,15 +675,15 @@ const ProductCardModule = {
       code: "WIDE",
       brand: "CROSS COUNTRY",
       pack: "1 Set (6 Pcs)",
-      size: "30",
-      color: "Vintage Tint",
-      img: "assets/images/wide-leg-tint.jpg"
+      size: "28 to 34 (Assorted Set)",
+      color: "Multiple Colours Available",
+      img: "assets/images/wide-leg-photo-1.jpg"
     };
 
     const brand = item.brand || "CROSS COUNTRY";
     const product = item.title || "Wide Leg";
     const code = item.code || "WIDE";
-    const size = item.size || "30";
+    const size = item.size || "28 to 34 (Assorted Set)";
     const color = item.color || "Multiple Colours Available";
     const pack = item.pack || "1 Set (6 Pcs)";
 
@@ -689,9 +695,9 @@ const ProductCardModule = {
       `• *Brand:* ${brand}\n` +
       `• *Product:* ${product}\n` +
       `• *Code:* ${code}\n` +
-      `• *Colorway:* ${color}\n` +
       `• *Pack:* ${pack} Wholesale\n` +
-      `• *Available Sizes:* Sizes 28 to 34 (Selected: Size ${size})\n\n` +
+      `• *Sizes:* ${size}\n` +
+      `• *Colours:* ${color}\n\n` +
       `Please provide the wholesale price quotation, MOQ terms, and dispatch schedule.`;
 
     window.WhatsAppModule?.openWhatsApp(message);
@@ -806,6 +812,150 @@ const FeaturedCarousel = {
 };
 
 window.FeaturedCarousel = FeaturedCarousel;
+
+/**
+ * ==========================================================================
+ * WIDE LEG FULL PHOTOS GALLERY CONTROLLER
+ * Opens full 8-photo gallery when Wide Leg category is clicked
+ * ==========================================================================
+ */
+const WideLegGallery = {
+  photos: [
+    { src: 'assets/images/wide-leg-photo-1.jpg', caption: 'Vintage Green-Tint Denim (Profile Wash View)' },
+    { src: 'assets/images/wide-leg-photo-2.jpg', caption: 'Vintage Green-Tint Denim (Model Fit View)' },
+    { src: 'assets/images/wide-leg-photo-3.jpg', caption: 'Washed Black / Charcoal Denim (Classic Wash)' },
+    { src: 'assets/images/wide-leg-photo-4.jpg', caption: 'Ice Light Blue Denim (Summer Wash)' },
+    { src: 'assets/images/wide-leg-photo-5.jpg', caption: 'Washed Black Denim (Texture & Pocket View)' },
+    { src: 'assets/images/wide-leg-photo-6.jpg', caption: 'Washed Black Denim (Wide Leg Hem & Silhouette)' },
+    { src: 'assets/images/wide-leg-photo-7.jpg', caption: 'Ice Light Blue Denim (Model Leg Fit View)' },
+    { src: 'assets/images/wide-leg-photo-8.jpg', caption: 'Deep Indigo Denim (Dark Wash Vintage Style)' }
+  ],
+  currentIndex: 0,
+
+  open(index = 0) {
+    this.currentIndex = typeof index === 'number' ? index : 0;
+    const modal = document.getElementById('wideLegGalleryModal');
+    if (!modal) return;
+
+    this.renderThumbnails();
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    this.update();
+  },
+
+  close() {
+    const modal = document.getElementById('wideLegGalleryModal');
+    if (!modal) return;
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  },
+
+  goTo(idx) {
+    if (idx < 0) idx = this.photos.length - 1;
+    if (idx >= this.photos.length) idx = 0;
+    this.currentIndex = idx;
+    this.update();
+  },
+
+  next() {
+    this.goTo(this.currentIndex + 1);
+  },
+
+  prev() {
+    this.goTo(this.currentIndex - 1);
+  },
+
+  renderThumbnails() {
+    const thumbsWrap = document.getElementById('wideLegThumbs');
+    if (!thumbsWrap || thumbsWrap.children.length > 0) return;
+
+    thumbsWrap.innerHTML = this.photos.map((p, idx) => `
+      <div class="wideleg-thumb ${idx === 0 ? 'active' : ''}" onclick="WideLegGallery.goTo(${idx})">
+        <img src="${p.src}" alt="Thumb ${idx + 1}" loading="lazy">
+      </div>
+    `).join('');
+  },
+
+  update() {
+    const photo = this.photos[this.currentIndex];
+    const mainImg = document.getElementById('wideLegMainImg');
+    const captionEl = document.getElementById('wideLegCaption');
+    const counterEl = document.getElementById('wideLegPhotoCounter');
+    const thumbsWrap = document.getElementById('wideLegThumbs');
+
+    if (mainImg) {
+      mainImg.style.opacity = '0.3';
+      setTimeout(() => {
+        mainImg.src = photo.src;
+        mainImg.style.opacity = '1';
+      }, 120);
+    }
+
+    if (captionEl) {
+      captionEl.textContent = photo.caption;
+    }
+
+    if (counterEl) {
+      counterEl.textContent = `${this.currentIndex + 1} / ${this.photos.length}`;
+    }
+
+    if (thumbsWrap) {
+      const thumbs = thumbsWrap.querySelectorAll('.wideleg-thumb');
+      thumbs.forEach((t, i) => {
+        if (i === this.currentIndex) {
+          t.classList.add('active');
+          t.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        } else {
+          t.classList.remove('active');
+        }
+      });
+    }
+  },
+
+  sendWhatsApp() {
+    const photo = this.photos[this.currentIndex] || this.photos[0];
+    const message =
+      `*B2B Wholesale Inquiry | CROSS COUNTRY*\n` +
+      `━━━━━━━━━━━━━━━━━━━━━━\n` +
+      `Hello Sales Team,\n\n` +
+      `I am inquiring about wholesale purchase for:\n` +
+      `• *Brand:* CROSS COUNTRY\n` +
+      `• *Product:* Wide Leg Denim\n` +
+      `• *Code:* WIDE\n` +
+      `• *Pack:* 1 Set (6 Pcs) Wholesale\n` +
+      `• *Sizes:* 28 to 34 (Assorted)\n` +
+      `• *Selected Photo Wash:* ${photo.caption}\n` +
+      `• *Colour Availability:* Multiple Colours Available\n\n` +
+      `Please provide the wholesale price catalog, MOQ terms, and dispatch schedule.`;
+
+    window.WhatsAppModule?.openWhatsApp(message);
+  },
+
+  addToBag() {
+    const photo = this.photos[this.currentIndex] || this.photos[0];
+    window.CartModule?.addItem({
+      id: `wide-leg-${this.currentIndex + 1}`,
+      name: `Cross Country Wide Leg (${photo.caption.split('(')[0].trim()})`,
+      brand: "CROSS COUNTRY",
+      fit: "Wide Leg",
+      code: "WIDE",
+      size: "Sizes 28 to 34 (1 Set / 6 Pcs)",
+      img: photo.src
+    });
+    FavoriteModule?.showToast(`🛒 Added Wide Leg Set (6 Pcs) to Bag!`);
+  }
+};
+
+window.WideLegGallery = WideLegGallery;
+
+// Close gallery on Escape key or backdrop click
+if (typeof document !== "undefined") {
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") WideLegGallery.close();
+  });
+}
 
 // Initialize components once DOM is loaded
 if (typeof document !== "undefined") {

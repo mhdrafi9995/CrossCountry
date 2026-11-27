@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -88,7 +88,8 @@
           </div>
         </li>
         <li class="nav-item">
-          <a href="#future-product" class="nav-link">Future Product <span style="font-size: 0.65rem; background: #111; color: #fff; padding: 2px 6px; border-radius: 4px; vertical-align: middle; margin-left: 2px;">NEW</span></a>
+          <a href="#future-product" class="nav-link">Future Product <span
+              style="font-size: 0.65rem; background: #111; color: #fff; padding: 2px 6px; border-radius: 4px; vertical-align: middle; margin-left: 2px;">NEW</span></a>
         </li>
         <li class="nav-item">
           <a href="#about" class="nav-link">About</a>
@@ -140,22 +141,28 @@
       <div class="banner-slider" id="bannerSlider">
         <!-- Slide 1: Jeans Banner -->
         <div class="banner-slide active" data-index="0">
-          <a href="#categories" onclick="CategoryFilter.select('straight-fit')" class="banner-slide-link" aria-label="Explore Jeans Collection">
-            <img src="assets/images/banner-1.jpg" alt="Cross Country Jeans — Why Choose Us" class="banner-img" loading="eager">
+          <a href="#categories" onclick="CategoryFilter.select('straight-fit')" class="banner-slide-link"
+            aria-label="Explore Jeans Collection">
+            <img src="assets/images/banner-1.jpg" alt="Cross Country Jeans — Why Choose Us" class="banner-img"
+              loading="eager">
           </a>
         </div>
 
         <!-- Slide 2: Linen Pant Banner -->
         <div class="banner-slide" data-index="1">
-          <a href="#categories" onclick="CategoryFilter.select('linen-pant')" class="banner-slide-link" aria-label="Explore Linen Pants Collection">
-            <img src="assets/images/banner-2.jpg" alt="Cross Country Linen Pants — Why Choose Us" class="banner-img" loading="lazy">
+          <a href="#categories" onclick="CategoryFilter.select('linen-pant')" class="banner-slide-link"
+            aria-label="Explore Linen Pants Collection">
+            <img src="assets/images/banner-2.jpg" alt="Cross Country Linen Pants — Why Choose Us" class="banner-img"
+              loading="lazy">
           </a>
         </div>
 
         <!-- Slide 3: Shorts Banner -->
         <div class="banner-slide" data-index="2">
-          <a href="#categories" onclick="CategoryFilter.select('shorts')" class="banner-slide-link" aria-label="Explore Shorts Collection">
-            <img src="assets/images/banner-3.jpg" alt="Cross Country Shorts — Why Choose Us" class="banner-img" loading="lazy">
+          <a href="#categories" onclick="CategoryFilter.select('shorts')" class="banner-slide-link"
+            aria-label="Explore Shorts Collection">
+            <img src="assets/images/banner-3.jpg" alt="Cross Country Shorts — Why Choose Us" class="banner-img"
+              loading="lazy">
           </a>
         </div>
       </div>
@@ -189,495 +196,242 @@
       </div>
     </section>
 
-<!-- ==========================================================================
+    <!-- ==========================================================================
      CROSS COUNTRY - EXPLORE OUR CATEGORIES COMPONENT
      Exact recreation of the reference design (Shop by Category)
      ========================================================================== -->
 
-<section class="explore-categories-section" id="categories">
-  <div class="categories-container">
-    <!-- Section Top Header -->
-    <div class="categories-header-wrap">
-      <div class="categories-title-col">
-        <div class="category-overline-wrap">
-          <span class="category-overline">SHOP BY CATEGORY</span>
-          <span class="category-overline-line"></span>
+    <section class="explore-categories-section" id="categories">
+      <div class="categories-container">
+        <!-- Section Top Header -->
+        <div class="categories-header-wrap">
+          <div class="categories-title-col">
+            <div class="category-overline-wrap">
+              <span class="category-overline">SHOP BY CATEGORY</span>
+              <span class="category-overline-line"></span>
+            </div>
+            <h2 class="category-main-title">Explore Our Categories</h2>
+          </div>
+
+          <a href="#categories" class="category-view-all-link" onclick="CategoryFilter.select('all')">
+            <span>View All Categories</span>
+            <span class="view-all-arrow">&rarr;</span>
+          </a>
         </div>
-        <h2 class="category-main-title">Explore Our Categories</h2>
+
+        <!-- 5 Categories Grid / Row -->
+        <div class="categories-grid">
+          <!-- 1. Wide Leg -->
+          <a href="#categories" class="category-card" data-category="wide-leg"
+            onclick="CategoryFilter.select('wide-leg')">
+            <div class="category-card-inner">
+              <img src="assets/images/category-wide-leg.jpg" alt="Cross Country Wide Leg Jeans"
+                class="category-card-img">
+              <div class="category-card-overlay"></div>
+              <div class="category-card-meta">
+                <h3 class="category-name">Wide Leg</h3>
+                <span class="category-cta">
+                  Shop Now <span class="cta-arrow">&rarr;</span>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <!-- 2. Straight Fit -->
+          <a href="#categories" class="category-card" data-category="straight-fit"
+            onclick="CategoryFilter.select('straight-fit')">
+            <div class="category-card-inner">
+              <img src="assets/images/category-straight-fit.jpg" alt="Cross Country Straight Fit Jeans"
+                class="category-card-img">
+              <div class="category-card-overlay"></div>
+              <div class="category-card-meta">
+                <h3 class="category-name">Straight Fit</h3>
+                <span class="category-cta">
+                  Shop Now <span class="cta-arrow">&rarr;</span>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <!-- 3. Tracks -->
+          <a href="#categories" class="category-card" data-category="tracks" onclick="CategoryFilter.select('tracks')">
+            <div class="category-card-inner">
+              <img src="assets/images/category-tracks.jpg" alt="Cross Country Tracks" class="category-card-img">
+              <div class="category-card-overlay"></div>
+              <div class="category-card-meta">
+                <h3 class="category-name">Tracks</h3>
+                <span class="category-cta">
+                  Shop Now <span class="cta-arrow">&rarr;</span>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <!-- 4. Shorts -->
+          <a href="#categories" class="category-card" data-category="shorts" onclick="CategoryFilter.select('shorts')">
+            <div class="category-card-inner">
+              <img src="assets/images/category-shorts.jpg" alt="Cross Country Shorts" class="category-card-img">
+              <div class="category-card-overlay"></div>
+              <div class="category-card-meta">
+                <h3 class="category-name">Shorts</h3>
+                <span class="category-cta">
+                  Shop Now <span class="cta-arrow">&rarr;</span>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <!-- 5. Linen Pant -->
+          <a href="#categories" class="category-card" data-category="linen-pant"
+            onclick="CategoryFilter.select('linen-pant')">
+            <div class="category-card-inner">
+              <img src="assets/images/category-linen-pant.jpg" alt="Cross Country Linen Pant" class="category-card-img">
+              <div class="category-card-overlay"></div>
+              <div class="category-card-meta">
+                <h3 class="category-name">Linen Pant</h3>
+                <span class="category-cta">
+                  Shop Now <span class="cta-arrow">&rarr;</span>
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
       </div>
+    </section>
 
-      <a href="#categories" class="category-view-all-link" onclick="CategoryFilter.select('all')">
-        <span>View All Categories</span>
-        <span class="view-all-arrow">&rarr;</span>
-      </a>
-    </div>
-
-    <!-- 5 Categories Grid / Row -->
-    <div class="categories-grid">
-      <!-- 1. Wide Leg -->
-      <a href="#categories" class="category-card" data-category="wide-leg" onclick="CategoryFilter.select('wide-leg')">
-        <div class="category-card-inner">
-          <img src="assets/images/category-wide-leg.jpg" alt="Cross Country Wide Leg Jeans" class="category-card-img">
-          <div class="category-card-overlay"></div>
-          <div class="category-card-meta">
-            <h3 class="category-name">Wide Leg</h3>
-            <span class="category-cta">
-              Shop Now <span class="cta-arrow">&rarr;</span>
-            </span>
-          </div>
-        </div>
-      </a>
-
-      <!-- 2. Straight Fit -->
-      <a href="#categories" class="category-card" data-category="straight-fit" onclick="CategoryFilter.select('straight-fit')">
-        <div class="category-card-inner">
-          <img src="assets/images/category-straight-fit.jpg" alt="Cross Country Straight Fit Jeans" class="category-card-img">
-          <div class="category-card-overlay"></div>
-          <div class="category-card-meta">
-            <h3 class="category-name">Straight Fit</h3>
-            <span class="category-cta">
-              Shop Now <span class="cta-arrow">&rarr;</span>
-            </span>
-          </div>
-        </div>
-      </a>
-
-      <!-- 3. Tracks -->
-      <a href="#categories" class="category-card" data-category="tracks" onclick="CategoryFilter.select('tracks')">
-        <div class="category-card-inner">
-          <img src="assets/images/category-tracks.jpg" alt="Cross Country Tracks" class="category-card-img">
-          <div class="category-card-overlay"></div>
-          <div class="category-card-meta">
-            <h3 class="category-name">Tracks</h3>
-            <span class="category-cta">
-              Shop Now <span class="cta-arrow">&rarr;</span>
-            </span>
-          </div>
-        </div>
-      </a>
-
-      <!-- 4. Shorts -->
-      <a href="#categories" class="category-card" data-category="shorts" onclick="CategoryFilter.select('shorts')">
-        <div class="category-card-inner">
-          <img src="assets/images/category-shorts.jpg" alt="Cross Country Shorts" class="category-card-img">
-          <div class="category-card-overlay"></div>
-          <div class="category-card-meta">
-            <h3 class="category-name">Shorts</h3>
-            <span class="category-cta">
-              Shop Now <span class="cta-arrow">&rarr;</span>
-            </span>
-          </div>
-        </div>
-      </a>
-
-      <!-- 5. Linen Pant -->
-      <a href="#categories" class="category-card" data-category="linen-pant" onclick="CategoryFilter.select('linen-pant')">
-        <div class="category-card-inner">
-          <img src="assets/images/category-linen-pant.jpg" alt="Cross Country Linen Pant" class="category-card-img">
-          <div class="category-card-overlay"></div>
-          <div class="category-card-meta">
-            <h3 class="category-name">Linen Pant</h3>
-            <span class="category-cta">
-              Shop Now <span class="cta-arrow">&rarr;</span>
-            </span>
-          </div>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ==========================================================================
+    <!-- ==========================================================================
      CROSS COUNTRY - FUTURE PRODUCT (WIDE LEG B2B COLLECTION)
      Heading: Future Product
      CROSS COUNTRY | WIDE LEG | SIZE: 28 TO 34 | 1 SET (6 PCS)
      COLOURS: MULTIPLE COLOURS AVAILABLE | B2B & Wholesale
      ========================================================================== -->
-<section class="future-product-section" id="future-product">
-  <div class="future-product-container">
-    <div class="future-product-header">
-      <div class="future-product-tag-wrap">
-        <span class="future-product-tag-dot"></span>
-        <span>New Arrival • B2B Exclusive</span>
-      </div>
-      <h2 class="future-product-heading">Future Product</h2>
-      <p class="future-product-subheading">
-        CROSS COUNTRY Wide Leg Denim • Sizes <strong>28 to 34</strong> • Pack: <strong>1 Set (6 Pcs)</strong> • Code: <strong>WIDE</strong> • <strong>Multiple Colours Available</strong>
-      </p>
-    </div>
-
-    <!-- Future Product Cards Grid -->
-    <div class="future-product-cards-grid">
-      
-      <!-- Card 1: Vintage Tint Wash -->
-      <div class="single-card-box" id="futureCard1" data-code="WIDE">
-        <div class="single-card-media" onclick="Widgets.openLightbox('assets/images/wide-leg-tint.jpg', 'Cross Country — Wide Leg (Vintage Tint)', 'Code: WIDE • Wholesale Only • 1 Set (6 Pcs) • Sizes: 28 to 34')">
-          <!-- Top Badges -->
-          <div class="media-badges-group">
-            <span class="media-badge-pill">New Arrival</span>
-            <span class="media-badge-pill badge-wholesale">Wholesale Only</span>
+    <section class="future-product-section" id="future-product">
+      <div class="future-product-container">
+        <div class="future-product-header">
+          <div class="future-product-tag-wrap">
+            <span class="future-product-tag-dot"></span>
+            <span>New Arrival • B2B Exclusive</span>
           </div>
+          <h2 class="future-product-heading">Future Product</h2>
 
-          <!-- Floating Favorite Heart Button -->
-          <button type="button" class="card-fav-btn" aria-label="Add Wide Leg Vintage Tint to Favorites" onclick="event.stopPropagation(); FavoriteModule.toggle(this, 'Wide Leg — Vintage Tint (CODE: WIDE)', 'WIDE')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-            </svg>
-          </button>
-
-          <!-- Card Image -->
-          <img src="assets/images/wide-leg-tint.jpg" alt="Cross Country Wide Leg Denim — Vintage Tint" class="single-card-img" onerror="this.src='assets/images/wide-leg-1.jpg'">
         </div>
 
-        <div class="single-card-body">
-          <div class="single-card-overline">
-            <span class="overline-text">CROSS COUNTRY</span>
-            <span class="overline-rule"></span>
-            <span class="product-code-badge">CODE: WIDE</span>
-          </div>
+        <!-- Future Product Cards Grid -->
+        <div class="future-product-cards-grid">
 
-          <h3 class="single-card-title">Wide Leg</h3>
+          <!-- Single Flagship Card: CROSS COUNTRY WIDE LEG -->
+          <div class="single-card-box" id="futureCard1" data-code="WIDE">
+            <div class="single-card-media"
+              onclick="WideLegGallery.open(0)">
+              <!-- Top Badges -->
+              <div class="media-badges-group">
+                <span class="media-badge-pill">New Arrival</span>
+                <span class="media-badge-pill badge-wholesale">Wholesale Only</span>
+              </div>
 
-          <!-- Specs: 1 Set (6 Pcs) | Multiple Colours Available -->
-          <div class="single-card-specs">
-            <div class="spec-item">
-              <svg class="spec-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 3h12v4l-1 14h-4l-1-10-1 10H7L6 7V3z"/>
-                <path d="M6 7h12"/>
-                <path d="M10 7v3"/>
-                <path d="M14 7v3"/>
-              </svg>
-              <span class="spec-primary-text">1 Set (6 Pcs)</span>
+              <!-- Floating Favorite Heart Button -->
+              <button type="button" class="card-fav-btn" aria-label="Add Wide Leg to Favorites"
+                onclick="event.stopPropagation(); FavoriteModule.toggle(this, 'CROSS COUNTRY Wide Leg Denim (CODE: WIDE)', 'WIDE')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                  </path>
+                </svg>
+              </button>
+
+              <!-- Card Image (Click opens full gallery) -->
+              <img src="assets/images/wide-leg-photo-1.jpg" alt="CROSS COUNTRY Wide Leg Denim — Future Product"
+                class="single-card-img" onerror="this.src='assets/images/category-wide-leg.jpg'">
             </div>
 
-            <div class="spec-vertical-rule"></div>
+            <div class="single-card-body">
+              <div class="single-card-overline">
+                <span class="overline-text">CROSS COUNTRY</span>
+                <span class="overline-rule"></span>
+                <span class="product-code-badge">CODE: WIDE</span>
+              </div>
 
-            <div class="spec-item">
-              <svg class="spec-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2C6.5 2 2 6.5 2 12c0 2.2 0.8 4.2 2.2 5.8 1.4 1.6 3.3 2.2 5.3 2.2 1.4 0 2.5-1.1 2.5-2.5 0-0.7-0.3-1.3-0.7-1.8-0.5-0.5-0.8-1.2-0.8-2 0-1.7 1.3-3 3-3h1.5c4.1 0 7.5-3.4 7.5-7.5C22 5.4 17.5 2 12 2z"/>
-                <circle cx="7.5" cy="8.5" r="1.2" fill="currentColor"/>
-                <circle cx="12" cy="6.5" r="1.2" fill="currentColor"/>
-                <circle cx="16.5" cy="8.5" r="1.2" fill="currentColor"/>
-              </svg>
-              <div class="spec-stacked-text">
-                <span>Multiple Colours</span>
-                <span>Available</span>
+              <h3 class="single-card-title">Wide Leg</h3>
+
+              <!-- B2B Wholesale Specifications (No single-piece color or size picking) -->
+              <div class="single-card-specs-full">
+                <div class="spec-row-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 3h12v4l-1 14h-4l-1-10-1 10H7L6 7V3z"/>
+                    <path d="M6 7h12"/>
+                    <path d="M10 7v3"/>
+                    <path d="M14 7v3"/>
+                  </svg>
+                  <span>Pack: <strong>1 Set (6 Pcs)</strong></span>
+                </div>
+                <div class="spec-row-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 12h20M7 8v8M12 9v6M17 8v8"/>
+                    <rect x="2" y="6" width="20" height="12" rx="2"/>
+                  </svg>
+                  <span>Sizes: <strong>28 to 34 (Assorted Set)</strong></span>
+                </div>
+                <div class="spec-row-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2C6.5 2 2 6.5 2 12c0 2.2 0.8 4.2 2.2 5.8 1.4 1.6 3.3 2.2 5.3 2.2 1.4 0 2.5-1.1 2.5-2.5 0-0.7-0.3-1.3-0.7-1.8-0.5-0.5-0.8-1.2-0.8-2 0-1.7 1.3-3 3-3h1.5c4.1 0 7.5-3.4 7.5-7.5C22 5.4 17.5 2 12 2z" />
+                    <circle cx="7.5" cy="8.5" r="1.2" fill="currentColor" />
+                    <circle cx="12" cy="6.5" r="1.2" fill="currentColor" />
+                    <circle cx="16.5" cy="8.5" r="1.2" fill="currentColor" />
+                  </svg>
+                  <span>Colours: <strong>Multiple Colours Available</strong></span>
+                </div>
+              </div>
+
+              <!-- Button to Open Full Photos Gallery (8 Photos) -->
+              <button type="button" class="card-view-photos-btn" onclick="WideLegGallery.open(0)">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <polyline points="21 15 16 10 5 21"/>
+                </svg>
+                <span>View Full Photos (8 Photos) &rarr;</span>
+              </button>
+
+              <!-- Action Buttons: WhatsApp Enquiry + Favorite + Add to Bag -->
+              <div class="single-card-actions">
+                <button type="button" class="single-card-wa-btn"
+                  onclick="WideLegGallery.sendWhatsApp()">
+                  <svg class="wa-glyph" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c.969.541 1.807.828 2.806.828 3.182 0 5.768-2.587 5.768-5.767 0-3.18-2.586-5.766-5.768-5.766zm3.385 8.163c-.144.405-.837.774-1.17.825-.311.048-.71.077-2.072-.486-1.635-.678-2.686-2.348-2.768-2.457-.082-.109-.661-.88-.661-1.677 0-.797.419-1.189.569-1.352.15-.163.328-.204.437-.204.109 0 .219.001.315.006.101.005.236-.039.369.28.144.348.492 1.2.535 1.288.043.088.072.191.014.307-.058.116-.087.189-.174.29-.087.101-.183.226-.262.304-.087.086-.177.179-.076.353.101.174.45 1.054 1.34 1.848.71.633 1.309.829 1.493.916.184.087.291.073.399-.051.109-.124.465-.541.589-.726.124-.185.247-.154.415-.093.167.062 1.062.5 1.244.591.182.091.304.135.348.212.044.077.044.448-.1 1.025z" />
+                  </svg>
+                  <span>WhatsApp Enquiry</span>
+                  <span class="btn-arrow-icon">&rarr;</span>
+                </button>
+
+                <div class="card-secondary-row">
+                  <button type="button" class="card-inline-fav-btn"
+                    onclick="FavoriteModule.toggle(this, 'CROSS COUNTRY Wide Leg Denim (CODE: WIDE)', 'WIDE')">
+                    <svg class="heart-icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="2">
+                      <path
+                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                      </path>
+                    </svg>
+                    <span class="fav-text">Favorite</span>
+                  </button>
+
+                  <button type="button" class="card-add-bag-btn" onclick="WideLegGallery.addToBag()">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                      <line x1="3" y1="6" x2="21" y2="6" />
+                      <path d="M16 10a4 4 0 0 1-8 0" />
+                    </svg>
+                    <span>Add to Bag</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- Color Swatch Pills -->
-          <div class="card-color-swatches">
-            <span class="swatches-label">Colour:</span>
-            <div class="swatches-pills">
-              <button type="button" class="color-swatch-btn active" data-color="tint" onclick="ProductCardModule.switchColor(this, 'tint', 'futureCard1')">
-                <span class="swatch-circle swatch-tint"></span>
-                <span>Vintage Tint</span>
-              </button>
-              <button type="button" class="color-swatch-btn" data-color="black" onclick="ProductCardModule.switchColor(this, 'black', 'futureCard1')">
-                <span class="swatch-circle swatch-washed-black"></span>
-                <span>Washed Black</span>
-              </button>
-              <button type="button" class="color-swatch-btn" data-color="ice" onclick="ProductCardModule.switchColor(this, 'ice', 'futureCard1')">
-                <span class="swatch-circle swatch-ice-blue"></span>
-                <span>Ice Blue</span>
-              </button>
-              <button type="button" class="color-swatch-btn" data-color="indigo" onclick="ProductCardModule.switchColor(this, 'indigo', 'futureCard1')">
-                <span class="swatch-circle swatch-deep-indigo"></span>
-                <span>Deep Indigo</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Sizes Selector: 28, 30, 32, 34 -->
-          <div class="single-card-sizes">
-            <span class="sizes-heading">Sizes:</span>
-            <div class="sizes-box-group">
-              <button type="button" class="size-btn" data-size="28" onclick="ProductCardModule.selectSize(this, 'futureCard1')">28</button>
-              <button type="button" class="size-btn active" data-size="30" onclick="ProductCardModule.selectSize(this, 'futureCard1')">30</button>
-              <button type="button" class="size-btn" data-size="32" onclick="ProductCardModule.selectSize(this, 'futureCard1')">32</button>
-              <button type="button" class="size-btn" data-size="34" onclick="ProductCardModule.selectSize(this, 'futureCard1')">34</button>
-            </div>
-          </div>
-
-          <!-- Action Buttons: WhatsApp Enquiry + Favorite + Add to Bag -->
-          <div class="single-card-actions">
-            <button type="button" class="single-card-wa-btn" onclick="ProductCardModule.sendWhatsApp('futureCard1')">
-              <svg class="wa-glyph" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c.969.541 1.807.828 2.806.828 3.182 0 5.768-2.587 5.768-5.767 0-3.18-2.586-5.766-5.768-5.766zm3.385 8.163c-.144.405-.837.774-1.17.825-.311.048-.71.077-2.072-.486-1.635-.678-2.686-2.348-2.768-2.457-.082-.109-.661-.88-.661-1.677 0-.797.419-1.189.569-1.352.15-.163.328-.204.437-.204.109 0 .219.001.315.006.101.005.236-.039.369.28.144.348.492 1.2.535 1.288.043.088.072.191.014.307-.058.116-.087.189-.174.29-.087.101-.183.226-.262.304-.087.086-.177.179-.076.353.101.174.45 1.054 1.34 1.848.71.633 1.309.829 1.493.916.184.087.291.073.399-.051.109-.124.465-.541.589-.726.124-.185.247-.154.415-.093.167.062 1.062.5 1.244.591.182.091.304.135.348.212.044.077.044.448-.1 1.025z"/>
-              </svg>
-              <span>WhatsApp Enquiry</span>
-              <span class="btn-arrow-icon">&rarr;</span>
-            </button>
-
-            <div class="card-secondary-row">
-              <button type="button" class="card-inline-fav-btn" onclick="FavoriteModule.toggle(this, 'Wide Leg — Vintage Tint (CODE: WIDE)', 'WIDE')">
-                <svg class="heart-icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-                </svg>
-                <span class="fav-text">Favorite</span>
-              </button>
-
-              <button type="button" class="card-add-bag-btn" onclick="ProductCardModule.addToBag('futureCard1')">
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-                  <line x1="3" y1="6" x2="21" y2="6"/>
-                  <path d="M16 10a4 4 0 0 1-8 0"/>
-                </svg>
-                <span>Add to Bag</span>
-              </button>
-            </div>
-          </div>
         </div>
       </div>
-
-      <!-- Card 2: Washed Black -->
-      <div class="single-card-box" id="futureCard2" data-code="WIDE">
-        <div class="single-card-media" onclick="Widgets.openLightbox('assets/images/wide-leg-black.jpg', 'Cross Country — Wide Leg (Washed Black)', 'Code: WIDE • Wholesale Only • 1 Set (6 Pcs) • Sizes: 28 to 34')">
-          <!-- Top Badges -->
-          <div class="media-badges-group">
-            <span class="media-badge-pill">Trending</span>
-            <span class="media-badge-pill badge-wholesale">Wholesale Only</span>
-          </div>
-
-          <!-- Floating Favorite Heart Button -->
-          <button type="button" class="card-fav-btn" aria-label="Add Wide Leg Washed Black to Favorites" onclick="event.stopPropagation(); FavoriteModule.toggle(this, 'Wide Leg — Washed Black (CODE: WIDE)', 'WIDE')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-            </svg>
-          </button>
-
-          <!-- Card Image -->
-          <img src="assets/images/wide-leg-black.jpg" alt="Cross Country Wide Leg Denim — Washed Black" class="single-card-img" onerror="this.src='assets/images/wide-leg-2.jpg'">
-        </div>
-
-        <div class="single-card-body">
-          <div class="single-card-overline">
-            <span class="overline-text">CROSS COUNTRY</span>
-            <span class="overline-rule"></span>
-            <span class="product-code-badge">CODE: WIDE</span>
-          </div>
-
-          <h3 class="single-card-title">Wide Leg</h3>
-
-          <!-- Specs: 1 Set (6 Pcs) | Multiple Colours Available -->
-          <div class="single-card-specs">
-            <div class="spec-item">
-              <svg class="spec-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 3h12v4l-1 14h-4l-1-10-1 10H7L6 7V3z"/>
-                <path d="M6 7h12"/>
-                <path d="M10 7v3"/>
-                <path d="M14 7v3"/>
-              </svg>
-              <span class="spec-primary-text">1 Set (6 Pcs)</span>
-            </div>
-
-            <div class="spec-vertical-rule"></div>
-
-            <div class="spec-item">
-              <svg class="spec-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2C6.5 2 2 6.5 2 12c0 2.2 0.8 4.2 2.2 5.8 1.4 1.6 3.3 2.2 5.3 2.2 1.4 0 2.5-1.1 2.5-2.5 0-0.7-0.3-1.3-0.7-1.8-0.5-0.5-0.8-1.2-0.8-2 0-1.7 1.3-3 3-3h1.5c4.1 0 7.5-3.4 7.5-7.5C22 5.4 17.5 2 12 2z"/>
-                <circle cx="7.5" cy="8.5" r="1.2" fill="currentColor"/>
-                <circle cx="12" cy="6.5" r="1.2" fill="currentColor"/>
-                <circle cx="16.5" cy="8.5" r="1.2" fill="currentColor"/>
-              </svg>
-              <div class="spec-stacked-text">
-                <span>Multiple Colours</span>
-                <span>Available</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Color Swatch Pills -->
-          <div class="card-color-swatches">
-            <span class="swatches-label">Colour:</span>
-            <div class="swatches-pills">
-              <button type="button" class="color-swatch-btn" data-color="tint" onclick="ProductCardModule.switchColor(this, 'tint', 'futureCard2')">
-                <span class="swatch-circle swatch-tint"></span>
-                <span>Vintage Tint</span>
-              </button>
-              <button type="button" class="color-swatch-btn active" data-color="black" onclick="ProductCardModule.switchColor(this, 'black', 'futureCard2')">
-                <span class="swatch-circle swatch-washed-black"></span>
-                <span>Washed Black</span>
-              </button>
-              <button type="button" class="color-swatch-btn" data-color="ice" onclick="ProductCardModule.switchColor(this, 'ice', 'futureCard2')">
-                <span class="swatch-circle swatch-ice-blue"></span>
-                <span>Ice Blue</span>
-              </button>
-              <button type="button" class="color-swatch-btn" data-color="indigo" onclick="ProductCardModule.switchColor(this, 'indigo', 'futureCard2')">
-                <span class="swatch-circle swatch-deep-indigo"></span>
-                <span>Deep Indigo</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Sizes Selector: 28, 30, 32, 34 -->
-          <div class="single-card-sizes">
-            <span class="sizes-heading">Sizes:</span>
-            <div class="sizes-box-group">
-              <button type="button" class="size-btn" data-size="28" onclick="ProductCardModule.selectSize(this, 'futureCard2')">28</button>
-              <button type="button" class="size-btn" data-size="30" onclick="ProductCardModule.selectSize(this, 'futureCard2')">30</button>
-              <button type="button" class="size-btn active" data-size="32" onclick="ProductCardModule.selectSize(this, 'futureCard2')">32</button>
-              <button type="button" class="size-btn" data-size="34" onclick="ProductCardModule.selectSize(this, 'futureCard2')">34</button>
-            </div>
-          </div>
-
-          <!-- Action Buttons: WhatsApp Enquiry + Favorite + Add to Bag -->
-          <div class="single-card-actions">
-            <button type="button" class="single-card-wa-btn" onclick="ProductCardModule.sendWhatsApp('futureCard2')">
-              <svg class="wa-glyph" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c.969.541 1.807.828 2.806.828 3.182 0 5.768-2.587 5.768-5.767 0-3.18-2.586-5.766-5.768-5.766zm3.385 8.163c-.144.405-.837.774-1.17.825-.311.048-.71.077-2.072-.486-1.635-.678-2.686-2.348-2.768-2.457-.082-.109-.661-.88-.661-1.677 0-.797.419-1.189.569-1.352.15-.163.328-.204.437-.204.109 0 .219.001.315.006.101.005.236-.039.369.28.144.348.492 1.2.535 1.288.043.088.072.191.014.307-.058.116-.087.189-.174.29-.087.101-.183.226-.262.304-.087.086-.177.179-.076.353.101.174.45 1.054 1.34 1.848.71.633 1.309.829 1.493.916.184.087.291.073.399-.051.109-.124.465-.541.589-.726.124-.185.247-.154.415-.093.167.062 1.062.5 1.244.591.182.091.304.135.348.212.044.077.044.448-.1 1.025z"/>
-              </svg>
-              <span>WhatsApp Enquiry</span>
-              <span class="btn-arrow-icon">&rarr;</span>
-            </button>
-
-            <div class="card-secondary-row">
-              <button type="button" class="card-inline-fav-btn" onclick="FavoriteModule.toggle(this, 'Wide Leg — Washed Black (CODE: WIDE)', 'WIDE')">
-                <svg class="heart-icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-                </svg>
-                <span class="fav-text">Favorite</span>
-              </button>
-
-              <button type="button" class="card-add-bag-btn" onclick="ProductCardModule.addToBag('futureCard2')">
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-                  <line x1="3" y1="6" x2="21" y2="6"/>
-                  <path d="M16 10a4 4 0 0 1-8 0"/>
-                </svg>
-                <span>Add to Bag</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 3: Ice Blue Wash -->
-      <div class="single-card-box" id="futureCard3" data-code="WIDE">
-        <div class="single-card-media" onclick="Widgets.openLightbox('assets/images/wide-leg-light-blue.jpg', 'Cross Country — Wide Leg (Ice Blue)', 'Code: WIDE • Wholesale Only • 1 Set (6 Pcs) • Sizes: 28 to 34')">
-          <!-- Top Badges -->
-          <div class="media-badges-group">
-            <span class="media-badge-pill">Popular</span>
-            <span class="media-badge-pill badge-wholesale">Wholesale Only</span>
-          </div>
-
-          <!-- Floating Favorite Heart Button -->
-          <button type="button" class="card-fav-btn" aria-label="Add Wide Leg Ice Blue to Favorites" onclick="event.stopPropagation(); FavoriteModule.toggle(this, 'Wide Leg — Ice Blue (CODE: WIDE)', 'WIDE')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-            </svg>
-          </button>
-
-          <!-- Card Image -->
-          <img src="assets/images/wide-leg-light-blue.jpg" alt="Cross Country Wide Leg Denim — Ice Blue" class="single-card-img" onerror="this.src='assets/images/wide-leg-3.jpg'">
-        </div>
-
-        <div class="single-card-body">
-          <div class="single-card-overline">
-            <span class="overline-text">CROSS COUNTRY</span>
-            <span class="overline-rule"></span>
-            <span class="product-code-badge">CODE: WIDE</span>
-          </div>
-
-          <h3 class="single-card-title">Wide Leg</h3>
-
-          <!-- Specs: 1 Set (6 Pcs) | Multiple Colours Available -->
-          <div class="single-card-specs">
-            <div class="spec-item">
-              <svg class="spec-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 3h12v4l-1 14h-4l-1-10-1 10H7L6 7V3z"/>
-                <path d="M6 7h12"/>
-                <path d="M10 7v3"/>
-                <path d="M14 7v3"/>
-              </svg>
-              <span class="spec-primary-text">1 Set (6 Pcs)</span>
-            </div>
-
-            <div class="spec-vertical-rule"></div>
-
-            <div class="spec-item">
-              <svg class="spec-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2C6.5 2 2 6.5 2 12c0 2.2 0.8 4.2 2.2 5.8 1.4 1.6 3.3 2.2 5.3 2.2 1.4 0 2.5-1.1 2.5-2.5 0-0.7-0.3-1.3-0.7-1.8-0.5-0.5-0.8-1.2-0.8-2 0-1.7 1.3-3 3-3h1.5c4.1 0 7.5-3.4 7.5-7.5C22 5.4 17.5 2 12 2z"/>
-                <circle cx="7.5" cy="8.5" r="1.2" fill="currentColor"/>
-                <circle cx="12" cy="6.5" r="1.2" fill="currentColor"/>
-                <circle cx="16.5" cy="8.5" r="1.2" fill="currentColor"/>
-              </svg>
-              <div class="spec-stacked-text">
-                <span>Multiple Colours</span>
-                <span>Available</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Color Swatch Pills -->
-          <div class="card-color-swatches">
-            <span class="swatches-label">Colour:</span>
-            <div class="swatches-pills">
-              <button type="button" class="color-swatch-btn" data-color="tint" onclick="ProductCardModule.switchColor(this, 'tint', 'futureCard3')">
-                <span class="swatch-circle swatch-tint"></span>
-                <span>Vintage Tint</span>
-              </button>
-              <button type="button" class="color-swatch-btn" data-color="black" onclick="ProductCardModule.switchColor(this, 'black', 'futureCard3')">
-                <span class="swatch-circle swatch-washed-black"></span>
-                <span>Washed Black</span>
-              </button>
-              <button type="button" class="color-swatch-btn active" data-color="ice" onclick="ProductCardModule.switchColor(this, 'ice', 'futureCard3')">
-                <span class="swatch-circle swatch-ice-blue"></span>
-                <span>Ice Blue</span>
-              </button>
-              <button type="button" class="color-swatch-btn" data-color="indigo" onclick="ProductCardModule.switchColor(this, 'indigo', 'futureCard3')">
-                <span class="swatch-circle swatch-deep-indigo"></span>
-                <span>Deep Indigo</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Sizes Selector: 28, 30, 32, 34 -->
-          <div class="single-card-sizes">
-            <span class="sizes-heading">Sizes:</span>
-            <div class="sizes-box-group">
-              <button type="button" class="size-btn" data-size="28" onclick="ProductCardModule.selectSize(this, 'futureCard3')">28</button>
-              <button type="button" class="size-btn" data-size="30" onclick="ProductCardModule.selectSize(this, 'futureCard3')">30</button>
-              <button type="button" class="size-btn active" data-size="32" onclick="ProductCardModule.selectSize(this, 'futureCard3')">32</button>
-              <button type="button" class="size-btn" data-size="34" onclick="ProductCardModule.selectSize(this, 'futureCard3')">34</button>
-            </div>
-          </div>
-
-          <!-- Action Buttons: WhatsApp Enquiry + Favorite + Add to Bag -->
-          <div class="single-card-actions">
-            <button type="button" class="single-card-wa-btn" onclick="ProductCardModule.sendWhatsApp('futureCard3')">
-              <svg class="wa-glyph" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c.969.541 1.807.828 2.806.828 3.182 0 5.768-2.587 5.768-5.767 0-3.18-2.586-5.766-5.768-5.766zm3.385 8.163c-.144.405-.837.774-1.17.825-.311.048-.71.077-2.072-.486-1.635-.678-2.686-2.348-2.768-2.457-.082-.109-.661-.88-.661-1.677 0-.797.419-1.189.569-1.352.15-.163.328-.204.437-.204.109 0 .219.001.315.006.101.005.236-.039.369.28.144.348.492 1.2.535 1.288.043.088.072.191.014.307-.058.116-.087.189-.174.29-.087.101-.183.226-.262.304-.087.086-.177.179-.076.353.101.174.45 1.054 1.34 1.848.71.633 1.309.829 1.493.916.184.087.291.073.399-.051.109-.124.465-.541.589-.726.124-.185.247-.154.415-.093.167.062 1.062.5 1.244.591.182.091.304.135.348.212.044.077.044.448-.1 1.025z"/>
-              </svg>
-              <span>WhatsApp Enquiry</span>
-              <span class="btn-arrow-icon">&rarr;</span>
-            </button>
-
-            <div class="card-secondary-row">
-              <button type="button" class="card-inline-fav-btn" onclick="FavoriteModule.toggle(this, 'Wide Leg — Ice Blue (CODE: WIDE)', 'WIDE')">
-                <svg class="heart-icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-                </svg>
-                <span class="fav-text">Favorite</span>
-              </button>
-
-              <button type="button" class="card-add-bag-btn" onclick="ProductCardModule.addToBag('futureCard3')">
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-                  <line x1="3" y1="6" x2="21" y2="6"/>
-                  <path d="M16 10a4 4 0 0 1-8 0"/>
-                </svg>
-                <span>Add to Bag</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
+    </section>
 
   </main>
 
@@ -693,54 +447,120 @@
 
   <!-- Footer Component Container (widgets/footer.html) -->
   <div id="footer-container">
-<!-- ==========================================================================
+    <!-- ==========================================================================
      CROSS COUNTRY / DOT JEANS CO. - FOOTER COMPONENT
      ========================================================================== -->
-<footer class="footer" id="about">
-  <div class="footer-top">
-    <div class="footer-col footer-brand">
-      <a href="#" class="brand-logo" aria-label="CROSS COUNTRY">
-        <img src="assets/images/logo-white.png" alt="CROSS COUNTRY Logo" class="brand-logo-img footer-logo-img">
-      </a>
-      <p class="footer-desc">
-        CROSS COUNTRY by DOT JEANS COMPANY — Old Money Fit tailored trousers (Sizes 30 to 36) crafted for retail
-        partners and wholesale buyers.
-      </p>
-    </div>
+    <footer class="footer" id="about">
+      <div class="footer-top">
+        <div class="footer-col footer-brand">
+          <a href="#" class="brand-logo" aria-label="CROSS COUNTRY">
+            <img src="assets/images/logo-white.png" alt="CROSS COUNTRY Logo" class="brand-logo-img footer-logo-img">
+          </a>
+          <p class="footer-desc">
+            CROSS COUNTRY by DOT JEANS COMPANY — Old Money Fit tailored trousers (Sizes 30 to 36) crafted for retail
+            partners and wholesale buyers.
+          </p>
+        </div>
 
-    <div class="footer-col">
-      <h4>Old Money Colors</h4>
-      <ul>
-        <li><a href="#shop">Ivory White (30–36)</a></li>
-        <li><a href="#shop">Olive Khaki (30–36)</a></li>
-        <li><a href="#shop">Jet Black (30–36)</a></li>
-        <li><a href="#shop">Sand Beige (30–36)</a></li>
-      </ul>
-    </div>
+        <div class="footer-col">
+          <h4>Old Money Colors</h4>
+          <ul>
+            <li><a href="#shop">Ivory White (30–36)</a></li>
+            <li><a href="#shop">Olive Khaki (30–36)</a></li>
+            <li><a href="#shop">Jet Black (30–36)</a></li>
+            <li><a href="#shop">Sand Beige (30–36)</a></li>
+          </ul>
+        </div>
 
-    <div class="footer-col">
-      <h4>Wholesale &amp; B2B</h4>
-      <ul>
-        <li><a href="javascript:void(0)" onclick="WhatsAppModule.startDirectChat()">Distributor Inquiries</a></li>
-        <li><a href="javascript:void(0)" onclick="WhatsAppModule.startDirectChat()">Bulk Set Orders (30–36)</a></li>
-        <li><a href="javascript:void(0)" onclick="WhatsAppModule.startDirectChat()">Old Money Fit Specs</a></li>
-      </ul>
-    </div>
+        <div class="footer-col">
+          <h4>Wholesale &amp; B2B</h4>
+          <ul>
+            <li><a href="javascript:void(0)" onclick="WhatsAppModule.startDirectChat()">Distributor Inquiries</a></li>
+            <li><a href="javascript:void(0)" onclick="WhatsAppModule.startDirectChat()">Bulk Set Orders (30–36)</a></li>
+            <li><a href="javascript:void(0)" onclick="WhatsAppModule.startDirectChat()">Old Money Fit Specs</a></li>
+          </ul>
+        </div>
 
-    <div class="footer-col" id="contact">
-      <h4>Direct Contact</h4>
-      <ul>
-        <li><a href="mailto:wholesale@dotjeansco.com">wholesale@dotjeansco.com</a></li>
-        <li><a href="tel:+919876543210">+91 98765 43210</a></li>
-      </ul>
-    </div>
+        <div class="footer-col" id="contact">
+          <h4>Direct Contact</h4>
+          <ul>
+            <li><a href="mailto:wholesale@dotjeansco.com">wholesale@dotjeansco.com</a></li>
+            <li><a href="tel:+919876543210">+91 98765 43210</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 CROSS COUNTRY • DOT JEANS COMPANY. All rights reserved.</p>
+        <p>Brand: Cross Country | Fit: Old Money | Sizes: 30 to 36</p>
+      </div>
+    </footer>
   </div>
 
-  <div class="footer-bottom">
-    <p>&copy; 2026 CROSS COUNTRY • DOT JEANS COMPANY. All rights reserved.</p>
-    <p>Brand: Cross Country | Fit: Old Money | Sizes: 30 to 36</p>
-  </div>
-</footer>
+  <!-- ==========================================================================
+       WIDE LEG FULL PHOTOS GALLERY MODAL
+       Triggered when clicking 'Wide Leg' category or 'View Full Photos' button
+       ========================================================================== -->
+  <div class="wideleg-modal-backdrop" id="wideLegGalleryModal" aria-hidden="true" role="dialog" aria-modal="true" onclick="if(event.target === this) WideLegGallery.close()">
+    <div class="wideleg-modal-container">
+      <!-- Modal Header -->
+      <div class="wideleg-modal-header">
+        <div class="wideleg-modal-title-col">
+          <span class="wideleg-modal-brand">CROSS COUNTRY • B2B WHOLESALE</span>
+          <h3 class="wideleg-modal-title">Wide Leg Denim Collection</h3>
+          <p class="wideleg-modal-meta">
+            Code: <strong>WIDE</strong> • Pack: <strong>1 Set (6 Pcs)</strong> • Sizes: <strong>28 to 34</strong> • <strong>Multiple Colours Available</strong>
+          </p>
+        </div>
+        <button type="button" class="wideleg-modal-close-btn" onclick="WideLegGallery.close()" aria-label="Close Gallery">&times;</button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="wideleg-modal-body">
+        <div class="wideleg-main-view">
+          <div class="wideleg-img-stage" onclick="Widgets.openLightbox(WideLegGallery.photos[WideLegGallery.currentIndex].src, 'Cross Country Wide Leg', 'Sizes: 28 to 34 • 1 Set (6 Pcs) • Multiple Colours')">
+            <img id="wideLegMainImg" src="assets/images/wide-leg-photo-1.jpg" alt="Cross Country Wide Leg Full View" class="wideleg-active-img">
+            <span class="wideleg-zoom-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+              Click to Zoom
+            </span>
+          </div>
+
+          <!-- Nav Controls (Prev / Next & Counter) -->
+          <div class="wideleg-nav-controls">
+            <button type="button" class="wideleg-prev-btn" onclick="WideLegGallery.prev()" aria-label="Previous Photo">&larr;</button>
+            <span class="wideleg-counter" id="wideLegPhotoCounter">1 / 8</span>
+            <button type="button" class="wideleg-next-btn" onclick="WideLegGallery.next()" aria-label="Next Photo">&rarr;</button>
+          </div>
+
+          <div class="wideleg-caption" id="wideLegCaption">Vintage Green-Tint Denim (Profile Wash View)</div>
+        </div>
+
+        <!-- Thumbnails Strip (All 8 Photos) -->
+        <div class="wideleg-thumbs-strip" id="wideLegThumbs">
+          <!-- Populated dynamically by WideLegGallery.renderThumbnails() -->
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="wideleg-modal-footer">
+        <button type="button" class="wideleg-wa-inquire-btn" onclick="WideLegGallery.sendWhatsApp()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c.969.541 1.807.828 2.806.828 3.182 0 5.768-2.587 5.768-5.767 0-3.18-2.586-5.766-5.768-5.766zm3.385 8.163c-.144.405-.837.774-1.17.825-.311.048-.71.077-2.072-.486-1.635-.678-2.686-2.348-2.768-2.457-.082-.109-.661-.88-.661-1.677 0-.797.419-1.189.569-1.352.15-.163.328-.204.437-.204.109 0 .219.001.315.006.101.005.236-.039.369.28.144.348.492 1.2.535 1.288.043.088.072.191.014.307-.058.116-.087.189-.174.29-.087.101-.183.226-.262.304-.087.086-.177.179-.076.353.101.174.45 1.054 1.34 1.848.71.633 1.309.829 1.493.916.184.087.291.073.399-.051.109-.124.465-.541.589-.726.124-.185.247-.154.415-.093.167.062 1.062.5 1.244.591.182.091.304.135.348.212.044.077.044.448-.1 1.025z"/>
+          </svg>
+          <span>WhatsApp Inquiry for this Wash</span>
+        </button>
+
+        <button type="button" class="wideleg-add-bag-btn" onclick="WideLegGallery.addToBag()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+          <span>Add Set to Bag</span>
+        </button>
+      </div>
+    </div>
   </div>
 
   <!-- Toast Notification for Favorites -->
