@@ -556,7 +556,10 @@ const ProductCardModule = {
     featuredCardLinen: { code: 'LINEN', title: 'Linen Classic Pant', size: '32', color: 'Natural Ivory', img: 'assets/images/category-linen-pant.jpg' },
     featuredCardTracks: { code: 'TRACK', title: 'Athletic Track Pant', size: '32', color: 'Midnight Black', img: 'assets/images/category-tracks.jpg' },
     oldMoneyCard1: { code: 'OLD', title: 'Old Money', size: '32', color: 'Jet Black', img: 'assets/images/old-money-card.jpg' },
-    oldMoneyCard2: { code: 'OLD', title: 'Old Money', size: '32', color: 'Sand Beige', img: 'assets/images/old-money-alt.jpg' }
+    oldMoneyCard2: { code: 'OLD', title: 'Old Money', size: '32', color: 'Sand Beige', img: 'assets/images/old-money-alt.jpg' },
+    futureCard1: { code: 'WIDE', title: 'Wide Leg', brand: 'CROSS COUNTRY', pack: '1 Set (6 Pcs)', size: '30', color: 'Vintage Tint', img: 'assets/images/wide-leg-tint.jpg' },
+    futureCard2: { code: 'WIDE', title: 'Wide Leg', brand: 'CROSS COUNTRY', pack: '1 Set (6 Pcs)', size: '32', color: 'Washed Black', img: 'assets/images/wide-leg-black.jpg' },
+    futureCard3: { code: 'WIDE', title: 'Wide Leg', brand: 'CROSS COUNTRY', pack: '1 Set (6 Pcs)', size: '32', color: 'Ice Blue', img: 'assets/images/wide-leg-light-blue.jpg' }
   },
 
   selectSize(btnEl, cardId) {
@@ -565,7 +568,7 @@ const ProductCardModule = {
       parent.querySelectorAll(".size-btn").forEach(b => b.classList.remove("active"));
     }
     btnEl.classList.add("active");
-    const chosenSize = btnEl.dataset.size || "32";
+    const chosenSize = btnEl.dataset.size || "30";
     if (!this.state[cardId]) {
       this.state[cardId] = { size: chosenSize };
     } else {
@@ -592,6 +595,32 @@ const ProductCardModule = {
       this.state[cardId].color = colorName;
     }
 
+    // Dynamic image swap for Wide Leg / Future Product
+    const wideLegMap = {
+      tint: 'assets/images/wide-leg-tint.jpg',
+      vintage: 'assets/images/wide-leg-tint.jpg',
+      black: 'assets/images/wide-leg-black.jpg',
+      'washed-black': 'assets/images/wide-leg-black.jpg',
+      ice: 'assets/images/wide-leg-light-blue.jpg',
+      'ice-blue': 'assets/images/wide-leg-light-blue.jpg',
+      indigo: 'assets/images/wide-leg-dark-blue.jpg',
+      'deep-indigo': 'assets/images/wide-leg-dark-blue.jpg'
+    };
+
+    if (wideLegMap[colorKey]) {
+      const imgEl = card.querySelector(".single-card-img, .featured-card-img");
+      const newSrc = wideLegMap[colorKey];
+      if (imgEl) {
+        imgEl.style.opacity = "0.3";
+        setTimeout(() => {
+          imgEl.src = newSrc;
+          imgEl.style.opacity = "1";
+        }, 150);
+      }
+      this.state[cardId].img = newSrc;
+      return;
+    }
+
     // Dynamic image swap for Old Money
     if (cardId.toLowerCase().includes("oldmoney")) {
       const imgEl = card.querySelector(".single-card-img, .featured-card-img");
@@ -610,40 +639,47 @@ const ProductCardModule = {
 
   addToBag(cardId) {
     const item = this.state[cardId] || {
-      title: "Cross Country Pants",
-      code: "PANTS",
-      size: "32",
-      color: "Standard",
-      img: "assets/images/old-money-card.jpg"
+      title: "Wide Leg",
+      code: "WIDE",
+      brand: "CROSS COUNTRY",
+      size: "30",
+      color: "Vintage Tint",
+      pack: "1 Set (6 Pcs)",
+      img: "assets/images/wide-leg-tint.jpg"
     };
 
+    const packText = item.pack || "1 Set (6 Pcs)";
+
     window.CartModule?.addItem({
-      id: `${(item.code || 'pants').toLowerCase()}-${(item.color || 'std').toLowerCase().replace(/\s+/g, '-')}`,
+      id: `${(item.code || 'wide').toLowerCase()}-${(item.color || 'std').toLowerCase().replace(/\s+/g, '-')}`,
       name: `${item.title} (${item.color || 'Standard'})`,
-      brand: "Cross Country",
+      brand: item.brand || "CROSS COUNTRY",
       fit: item.title,
-      code: item.code || "PANTS",
-      size: `Size ${item.size || '32'} (1 Set / 5 Pcs)`,
-      img: item.img || "assets/images/old-money-card.jpg"
+      code: item.code || "WIDE",
+      size: `Size ${item.size || '30'} (${packText})`,
+      img: item.img || "assets/images/wide-leg-tint.jpg"
     });
 
-    FavoriteModule?.showToast(`🛒 Added "${item.title}" to bag!`);
+    FavoriteModule?.showToast(`🛒 Added "${item.title}" (${item.color || 'Standard'}) to bag!`);
   },
 
   sendWhatsApp(cardId) {
     const item = this.state[cardId] || {
-      title: "Cross Country Pants",
-      code: "OLD",
-      size: "32",
-      color: "Jet Black",
-      img: "assets/images/old-money-card.jpg"
+      title: "Wide Leg",
+      code: "WIDE",
+      brand: "CROSS COUNTRY",
+      pack: "1 Set (6 Pcs)",
+      size: "30",
+      color: "Vintage Tint",
+      img: "assets/images/wide-leg-tint.jpg"
     };
 
-    const brand = "CROSS COUNTRY";
-    const product = item.title;
-    const code = item.code;
-    const size = item.size || "32";
-    const color = item.color || "Standard";
+    const brand = item.brand || "CROSS COUNTRY";
+    const product = item.title || "Wide Leg";
+    const code = item.code || "WIDE";
+    const size = item.size || "30";
+    const color = item.color || "Multiple Colours Available";
+    const pack = item.pack || "1 Set (6 Pcs)";
 
     const message =
       `*B2B Wholesale Inquiry | ${brand}*\n` +
@@ -654,8 +690,8 @@ const ProductCardModule = {
       `• *Product:* ${product}\n` +
       `• *Code:* ${code}\n` +
       `• *Colorway:* ${color}\n` +
-      `• *Pack:* 1 Set (5 Pcs) Wholesale\n` +
-      `• *Selected Size Focus:* Size ${size}\n\n` +
+      `• *Pack:* ${pack} Wholesale\n` +
+      `• *Available Sizes:* Sizes 28 to 34 (Selected: Size ${size})\n\n` +
       `Please provide the wholesale price quotation, MOQ terms, and dispatch schedule.`;
 
     window.WhatsAppModule?.openWhatsApp(message);
